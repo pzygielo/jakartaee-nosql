@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
-package jakarta.nosql.communication.spi;
+package jakarta.nosql.communication;
 
 /**
  * Represents a fluent, provider-defined delete operation.
@@ -27,8 +27,6 @@ package jakarta.nosql.communication.spi;
  *
  * <p>A delete target must be specified via {@link #from(String)} before
  * applying conditions or executing the operation.</p>
- *
- * <h3>Example</h3>
  *
  * <pre>{@code
  * manager.delete()

@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
-package jakarta.nosql.communication.spi;
+package jakarta.nosql.communication;
 
 
 import java.util.stream.Stream;
@@ -30,8 +30,6 @@ import java.util.stream.Stream;
  *
  * <p>A selection target must be specified via {@link #from(String)} before
  * applying conditions or executing the operation.</p>
- *
- * <h3>Example</h3>
  *
  * <pre>{@code
  * Stream<ProviderStructure> result =

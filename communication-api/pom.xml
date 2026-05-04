@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2022 Contributors to the Eclipse Foundation
+  ~
+  ~ This program and the accompanying materials are made available under the
+  ~ terms of the Eclipse Public License v. 2.0 which is available at
+  ~ http://www.eclipse.org/legal/epl-2.0.
+  ~
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>jakarta.nosql</groupId>
+        <artifactId>jakarta.nosql-parent</artifactId>
+        <version>1.1.0-M2</version>
+    </parent>
+
+    <artifactId>jakarta.nosql.communication-api</artifactId>
+
+    <name>Jakarta NoSQL Communication API</name>
+    <description>Jakarta NoSQL :: Communication API</description>
+
+    <dependencies>
+    </dependencies>
+
+    <url>https://projects.eclipse.org/projects/ee4j.nosql</url>
+
+    <scm>
+        <connection>scm:git:git://github.com/jakartaee/nosql.git</connection>
+        <developerConnection>scm:git:ssh://github.com:jakartaee/nosql.git</developerConnection>
+        <url>https://github.com/jakartaee/nosql</url>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-api-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <source>${maven.compiler.source}</source>
+                            <quiet>true</quiet>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
+                            <description>Jakarta NoSQL API documentation</description>
+                            <doctitle>Jakarta NoSQL API documentation</doctitle>
+                            <windowtitle>Jakarta NoSQL API documentation</windowtitle>
+                            <header><![CDATA[<br>Jakarta NoSQL API v${spec.version}]]></header>
+                            <bottom><![CDATA[
+Comments to: <a href="mailto:nosql-dev@eclipse.org">nosql-dev@eclipse.org</a>.<br>
+Copyright &#169; 2024, 2025 Eclipse Foundation. All rights reserved.<br>
+Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">license terms</a>.]]>
+                            </bottom>
+                            <docfilessubdirs>true</docfilessubdirs>
+                            <groups>
+                                <group>
+                                    <title>Jakarta NOSQL API Documentation</title>
+                                    <packages>
+                                        jakarta.nosql
+                                    </packages>
+                                </group>
+                            </groups>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>6.0.0</version>
+                <configuration>
+                    <niceManifest>true</niceManifest>
+                    <instructions>
+                        <Bundle-Description>Jakarta NoSQL ${spec.version} API jar</Bundle-Description>
+                        <Bundle-Name>Jakarta NoSQL API jar</Bundle-Name>
+                        <Bundle-SymbolicName>jakarta.nosql-api</Bundle-SymbolicName>
+                        <Bundle-Version>${spec.version}</Bundle-Version>
+                        <Extension-Name>jakarta.nosql</Extension-Name>
+                        <Implementation-Version>${project.version}</Implementation-Version>
+                        <Specification-Vendor>Eclipse Foundation</Specification-Vendor>
+                        <Specification-Version>${spec.version}</Specification-Version>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>osgi-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+             <!-- Adds the manifest file created by the org.apache.felix:maven-bundle-plugin -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                    <excludes>
+                        <exclude>**/*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <flattenMode>ossrh</flattenMode>
+                </configuration>
+                <executions>
+                    <!-- enable flattening -->
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <!-- ensure proper cleanup -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

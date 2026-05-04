@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -13,13 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
-package jakarta.nosql.communication.spi;
+package jakarta.nosql.communication.keyvalue;
 
-/**
- * Represents a provider-defined condition token.
- *
- * <p>The structure, semantics, and evaluation of this token are entirely
- * provider-defined and opaque to this specification.</p>
- */
-public interface Condition {
+public interface BucketManager {
 }

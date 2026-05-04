@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -59,4 +59,4 @@
  * provider implementations or masking the inherent variability of NoSQL
  * technologies.</p>
  */
-package jakarta.nosql.communication.spi;
+package jakarta.nosql.communication;

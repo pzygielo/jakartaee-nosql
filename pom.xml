@@ -333,6 +333,7 @@ Copyright &#169; 2025 Eclipse Foundation. All rights reserved.<br>]]>
     </build>
 
     <modules>
+        <module>communication-api</module>
         <module>api</module>
         <module>tck</module>
         <module>spec</module>

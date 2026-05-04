@@ -31,8 +31,6 @@ import java.util.stream.Stream;
  * <p>A selection target must be specified via {@link #from(String)} before
  * applying conditions or executing the operation.</p>
  *
- * <h3>Example</h3>
- *
  * <pre>{@code
  * Stream<ProviderStructure> result =
  *         manager.select()

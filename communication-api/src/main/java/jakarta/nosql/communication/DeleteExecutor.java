@@ -28,8 +28,6 @@ package jakarta.nosql.communication;
  * <p>A delete target must be specified via {@link #from(String)} before
  * applying conditions or executing the operation.</p>
  *
- * <h3>Example</h3>
- *
  * <pre>{@code
  * manager.delete()
  *        .from("orders")

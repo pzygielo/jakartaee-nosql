@@ -28,8 +28,6 @@ package jakarta.nosql.communication;
  * <p>An update target must be specified via {@link #from(String)} before
  * applying update tokens or executing the operation.</p>
  *
- * <h3>Example</h3>
- *
  * <pre>{@code
  * UpdateExecutor.Update promote =
  *         provider.update("priority", "HIGH");

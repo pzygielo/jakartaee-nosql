@@ -14,6 +14,9 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
 
+/**
+ * Defines the core communication API for NoSQL database operations.
+ */
 module jakarta.nosql.communication {
     exports jakarta.nosql.communication;
 }

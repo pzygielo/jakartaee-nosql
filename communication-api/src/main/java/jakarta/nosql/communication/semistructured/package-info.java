@@ -45,6 +45,5 @@
  * extensible foundation for interacting with NoSQL systems that manage
  * hierarchical and flexible data, enabling integration while preserving
  * their native characteristics.</p>
- *
  */
 package jakarta.nosql.communication.semistructured;

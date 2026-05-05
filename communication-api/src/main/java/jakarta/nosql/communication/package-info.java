@@ -15,7 +15,6 @@
  */
 
 /**
- * Defines the Communication API for Jakarta NoSQL.
  *
  * <p>The Communication API is an optional, lower-level API for interacting
  * directly with NoSQL databases. It provides a minimal and extensible contract

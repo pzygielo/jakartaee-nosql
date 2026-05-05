@@ -41,4 +41,3 @@
  * NoSQL.</p>
  */
 package jakarta.nosql.communication.keyvalue;
-package jakarta.nosql.communication.keyvalue;

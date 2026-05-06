@@ -34,6 +34,13 @@ package jakarta.nosql.communication;
  */
 public interface Record {
 
+
+    /**
+     * Returns the unique key associated with this record.
+     *
+     * @param <K> the key type
+     * @return the record key
+     */
     <K> K  key();
 
 }

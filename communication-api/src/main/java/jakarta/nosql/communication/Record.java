@@ -15,6 +15,23 @@
  */
 package jakarta.nosql.communication;
 
+/**
+ * Represents the minimal communication structure that can be persisted
+ * within a NoSQL database.
+ *
+ * <p>A {@code Record} defines the fundamental unit of interaction used by
+ * the Communication API. It provides access to the record key, which uniquely
+ * identifies the data within the underlying database.</p>
+ *
+ * <p>This abstraction is intentionally minimal and does not impose assumptions
+ * about the internal structure, schema, or semantics of the stored data.
+ * Specialized NoSQL models such as key-value, document, graph, column-family,
+ * time-series, and vector databases may extend this interface according to
+ * their specific capabilities and behaviors.</p>
+ *
+ * <p>The type and semantics of the key are determined by the underlying
+ * database and provider implementation.</p>
+ */
 public interface Record {
 
     <K> K  key();

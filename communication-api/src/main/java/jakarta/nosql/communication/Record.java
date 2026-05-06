@@ -16,4 +16,7 @@
 package jakarta.nosql.communication;
 
 public interface Record {
+
+    <K> K  key();
+
 }

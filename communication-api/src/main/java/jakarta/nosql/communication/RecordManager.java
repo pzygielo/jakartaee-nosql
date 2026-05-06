@@ -36,7 +36,7 @@ package jakarta.nosql.communication;
 public interface RecordManager {
 
     /**
-     * Inserts a new record into the database.
+     * Requests the insertion of a new record into the database.
      *
      * <p>The behavior of this operation, including conflict handling,
      * key generation, and validation rules, is determined by the

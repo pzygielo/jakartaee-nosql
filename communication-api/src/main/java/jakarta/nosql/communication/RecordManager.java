@@ -34,4 +34,34 @@ package jakarta.nosql.communication;
  * semantics of the target NoSQL database.</p>
  */
 public interface RecordManager {
+
+    /**
+     * Inserts a new record into the database.
+     *
+     * <p>The behavior of this operation, including conflict handling,
+     * key generation, and validation rules, is determined by the
+     * underlying database implementation.</p>
+     *
+     * <p>This operation returns the persisted record instance. Provider
+     * implementations may return the same instance or a new instance
+     * containing additional generated information, such as a database-generated
+     * key or provider-specific metadata.</p>
+     *
+     * <p>Databases that require a key during insertion may reject records
+     * without a defined key, typically by throwing a provider-specific
+     * exception. Other implementations may generate the key automatically
+     * and return a new record instance containing the generated value.</p>
+     *
+     * <pre>{@code
+     * Record record = ...
+     *
+     * RecordManager manager = ...
+     * Record persisted = manager.insert(record);
+     * }</pre>
+     *
+     * @param record the record to insert
+     * @return the persisted record instance
+     * @throws NullPointerException when the record is {@code null}
+     */
+    Record insert(Record record);
 }

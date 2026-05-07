@@ -231,7 +231,7 @@ public interface RecordManager {
      * or provider-specific key structures.</p>
      *
      * <p>Some NoSQL databases may execute deletion operations
-     * asynchronously or using eventual persistence strategies.
+     * asynchronously or using eventual consistency strategies.
      * In such systems, record removal may not become immediately
      * visible across all nodes, replicas, or distributed regions.</p>
      *

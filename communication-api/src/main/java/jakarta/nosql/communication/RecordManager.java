@@ -142,4 +142,45 @@ public interface RecordManager {
      */
     Iterable<Record> insert(Iterable<Record> records);
 
+
+    /**
+     * Requests the update of multiple records in the database.
+     *
+     * <p>The batching behavior, ordering guarantees, visibility,
+     * durability, consistency model, partial failure handling,
+     * and execution timing are determined by the underlying
+     * database implementation.</p>
+     *
+     * <p>This operation returns the updated record instances.
+     * Provider implementations may return the same instances or
+     * new instances containing additional generated information
+     * or provider-specific metadata.</p>
+     *
+     * <p>Some NoSQL databases may implement updates using append-only
+     * or upsert semantics. In such systems, this operation may behave
+     * as an alias for insertion when target records do not already exist.</p>
+     *
+     * <p>Other databases may require records to exist before updates
+     * are executed. In these cases, implementations may reject updates
+     * for non-existing records, typically by throwing a provider-specific
+     * exception.</p>
+     *
+     * <p>Some databases may execute batch operations atomically,
+     * while others may partially update records before a failure
+     * occurs. Implementations may also process records lazily,
+     * sequentially, or using provider-specific batching strategies.</p>
+     *
+     * <pre>{@code
+     * Iterable<Record> records = ...
+     *
+     * RecordManager manager = ...
+     * Iterable<Record> updated = manager.update(records);
+     * }</pre>
+     *
+     * @param records the records to update
+     * @return the updated record instances
+     * @throws NullPointerException when the records are {@code null}
+     */
+    Iterable<Record> update(Iterable<Record> records);
+
 }

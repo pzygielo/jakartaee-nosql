@@ -39,8 +39,9 @@ public interface RecordManager {
      * Requests the insertion of a new record into the database.
      *
      * <p>The behavior of this operation, including conflict handling,
-     * key generation, and validation rules, is determined by the
-     * underlying database implementation.</p>
+     * key generation, validation rules, visibility, durability, and
+     * consistency guarantees, is determined by the underlying database
+     * implementation.</p>
      *
      * <p>This operation returns the persisted record instance. Provider
      * implementations may return the same instance or a new instance

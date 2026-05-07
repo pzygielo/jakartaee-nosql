@@ -15,48 +15,41 @@
  */
 
 /**
- * Provides a low-level Service Provider Interface (SPI) for expressing
- * communication intent with NoSQL databases in a structured and provider-neutral
- * manner.
  *
- * <p>This package defines a minimal set of abstractions whose primary purpose
- * is to act as a <em>communication wrapper</em> or <em>adapter layer</em>
- * between higher-level frameworks and underlying NoSQL database providers.</p>
+ * <p>The Communication API is an optional, lower-level API for interacting
+ * directly with NoSQL databases. It provides a minimal and extensible contract
+ * that enables integration between Jakarta NoSQL and vendor-specific drivers.</p>
  *
- * <p>The APIs in this package do <strong>not</strong> attempt to standardize
- * query languages, mutation semantics, consistency models, or execution
- * guarantees. Instead, they define the <em>shape</em> of interaction —
- * how selection, update, and delete intentions are expressed — while leaving
- * all semantic interpretation to the provider.</p>
+ * <p>This API acts as an integration layer between the Mapping API and
+ * underlying NoSQL database providers. Implementations may use this layer
+ * to standardize communication, or they may integrate directly with the
+ * Mapping API without using it.</p>
  *
- * <p>This design acknowledges the fundamental diversity of NoSQL systems.
- * Document, key-value, column-family, graph, and other NoSQL databases expose
- * different data models, capabilities, and operational constraints. Any attempt
- * to impose a unified semantic model would either oversimplify these systems or
- * restrict their native strengths.</p>
+ * <p>The Communication API is intentionally minimal. It defines only the
+ * essential abstractions required to represent operations and interact with
+ * NoSQL systems, avoiding unnecessary constraints or assumptions about
+ * database behavior.</p>
  *
- * <p>As a result, this package intentionally models operations using opaque,
- * provider-defined tokens (such as {@code Condition}, {@code Order}, and
- * update descriptors) and fluent execution contracts. Providers may fully
- * implement, partially implement, or reject specific operations, typically
- * signaling unsupported capabilities via {@link java.lang.UnsupportedOperationException}.</p>
+ * <p>This API is also designed for extensibility. NoSQL databases differ
+ * significantly in their data models, capabilities, and execution semantics.
+ * Implementations are expected to extend or adapt these abstractions to
+ * support native features, preserving the specific behavior of each database.</p>
  *
- * <p>The primary consumers of this SPI are expected to be:</p>
- * <ul>
- *   <li>Frameworks and runtime integrations</li>
- *   <li>Higher-level Jakarta specifications (such as data access or query layers)</li>
- *   <li>Infrastructure components, adapters, and portability layers</li>
- *   <li>Testing, tooling, and observability integrations</li>
- * </ul>
+ * <p>The Communication API does not enforce a unified query language,
+ * consistency model, or execution semantics. Instead, it provides a common
+ * structure for interaction while allowing each provider to define the
+ * meaning and execution of operations according to its capabilities.</p>
  *
- * <p>This package is <strong>not</strong> intended to be a direct application
- * programming model. Application-facing APIs are expected to be built on top
- * of this SPI, adding domain semantics, validation, and convenience methods
- * as appropriate.</p>
+ * <p>This package defines a minimal set of abstractions whose support may
+ * vary depending on the underlying database. Implementations may support
+ * all, some, or none of the defined features.</p>
  *
- * <p>In summary, this package defines a stable, minimal, and extensible
- * contract for communicating intent to NoSQL systems, without constraining
- * provider implementations or masking the inherent variability of NoSQL
- * technologies.</p>
+ * <p>This API is primarily intended for database providers, framework
+ * implementers, and integration layers. Application developers are expected
+ * to use higher-level APIs, such as the Mapping API.</p>
+ *
+ * <p>In summary, the Communication API provides an optional, minimal, and
+ * extensible foundation for integrating Jakarta NoSQL with diverse NoSQL
+ * systems, while preserving their native characteristics and behaviors.</p>
  */
 package jakarta.nosql.communication;

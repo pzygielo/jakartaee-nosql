@@ -105,4 +105,41 @@ public interface RecordManager {
      */
     Record update(Record record);
 
+    /**
+     * Requests the insertion of multiple records into the database.
+     *
+     * <p>The batching behavior, ordering guarantees, visibility,
+     * durability, consistency model, partial failure handling,
+     * and execution timing are determined by the underlying
+     * database implementation.</p>
+     *
+     * <p>This operation returns the persisted record instances.
+     * Provider implementations may return the same instances or
+     * new instances containing additional generated information,
+     * such as generated keys or provider-specific metadata.</p>
+     *
+     * <p>Some databases may execute batch operations atomically,
+     * while others may partially persist records before a failure
+     * occurs. Implementations may also process records lazily,
+     * sequentially, or using provider-specific batching strategies.</p>
+     *
+     * <p>Databases that require keys during insertion may reject
+     * records without defined keys, typically by throwing a
+     * provider-specific exception. Other implementations may
+     * generate keys automatically and return updated record
+     * instances containing the generated values.</p>
+     *
+     * <pre>{@code
+     * Iterable<Record> records = ...
+     *
+     * RecordManager manager = ...
+     * Iterable<Record> persisted = manager.insert(records);
+     * }</pre>
+     *
+     * @param records the records to insert
+     * @return the persisted record instances
+     * @throws NullPointerException when the records are {@code null}
+     */
+    Iterable<Record> insert(Iterable<Record> records);
+
 }

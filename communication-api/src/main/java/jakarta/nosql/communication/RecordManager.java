@@ -217,4 +217,38 @@ public interface RecordManager {
      */
     <K> Optional<Record> findByKey(K key);
 
+    /**
+     * Requests the removal of a record using its unique key.
+     *
+     * <p>The interpretation, structure, visibility guarantees,
+     * consistency model, durability semantics, and execution timing
+     * of this operation are determined by the underlying database
+     * implementation.</p>
+     *
+     * <p>The key may represent different concepts depending on
+     * the database model and provider implementation, including
+     * identifiers, partition keys, composite keys, node identifiers,
+     * or provider-specific key structures.</p>
+     *
+     * <p>Some NoSQL databases may execute deletion operations
+     * asynchronously or using eventual persistence strategies.
+     * In such systems, record removal may not become immediately
+     * visible across all nodes, replicas, or distributed regions.</p>
+     *
+     * <p>Implementations may reject deletion requests for
+     * non-existing records or invalid keys, typically by
+     * throwing a provider-specific exception.</p>
+     *
+     * <pre>{@code
+     * RecordManager manager = ...
+     *
+     * manager.deleteByKey("user:10");
+     * }</pre>
+     *
+     * @param key the unique record key
+     * @param <K> the key type
+     * @throws NullPointerException when the key is {@code null}
+     */
+    <K> void deleteByKey(K key);
+
 }

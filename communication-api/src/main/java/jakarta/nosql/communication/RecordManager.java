@@ -24,6 +24,10 @@ package jakarta.nosql.communication;
  * and deletion. This interface represents the common operational
  * foundation shared across NoSQL database models.</p>
  *
+ * <p>The visibility, durability, consistency, and execution timing of
+ * operations defined by this interface are determined by the underlying
+ * database implementation.</p>
+ *
  * <p>The Communication API is intentionally minimal and does not define
  * query languages, traversal semantics, aggregation models, or other
  * database-specific capabilities. Specialized communication models may

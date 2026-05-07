@@ -24,10 +24,6 @@ package jakarta.nosql.communication;
  * generic and specialized communication managers according to the
  * capabilities of the underlying database implementation.</p>
  *
- * <p>The factory may provide managers for different NoSQL models,
- * including key-value, document, graph, column-family,
- * time-series, and vector databases.</p>
- *
  * <p>The availability, lifecycle, caching behavior, and creation
  * semantics of managers are determined by the underlying
  * provider implementation.</p>

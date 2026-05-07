@@ -15,6 +15,8 @@
  */
 package jakarta.nosql.communication;
 
+import java.util.Optional;
+
 /**
  * Defines the minimal communication contract for managing records within
  * a NoSQL database.
@@ -182,5 +184,37 @@ public interface RecordManager {
      * @throws NullPointerException when the records are {@code null}
      */
     Iterable<Record> update(Iterable<Record> records);
+
+    /**
+     * Retrieves a record using its unique key.
+     *
+     * <p>The interpretation, structure, visibility guarantees,
+     * consistency model, and lookup semantics of the key are
+     * determined by the underlying database implementation.</p>
+     *
+     * <p>The key may represent different concepts depending on
+     * the database model and provider implementation, including
+     * identifiers, partition keys, composite keys, node identifiers,
+     * or provider-specific key structures.</p>
+     *
+     * <p>Implementations may perform lookups eagerly, lazily,
+     * locally, remotely, or using distributed resolution strategies
+     * according to the characteristics of the underlying database.</p>
+     *
+     * <p>If no matching record exists, this method returns an
+     * empty {@link Optional}.</p>
+     *
+     * <pre>{@code
+     * RecordManager manager = ...
+     *
+     * Optional<Record> record = manager.findByKey("user:10");
+     * }</pre>
+     *
+     * @param key the unique record key
+     * @param <K> the key type
+     * @return the matching record when present
+     * @throws NullPointerException when the key is {@code null}
+     */
+    <K> Optional<Record> findByKey(K key);
 
 }

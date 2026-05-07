@@ -69,4 +69,40 @@ public interface RecordManager {
      * @throws NullPointerException when the record is {@code null}
      */
     Record insert(Record record);
+
+    /**
+     * Requests the update of an existing record in the database.
+     *
+     * <p>The behavior of this operation, including update semantics,
+     * conflict handling, visibility, durability, consistency guarantees,
+     * and execution timing, is determined by the underlying database
+     * implementation.</p>
+     *
+     * <p>This operation returns the updated record instance. Provider
+     * implementations may return the same instance or a new instance
+     * containing additional generated information or provider-specific
+     * metadata.</p>
+     *
+     * <p>Some NoSQL databases may implement updates using append-only or
+     * upsert semantics. In such systems, this operation may behave as an
+     * alias for insertion when the target record does not already exist.</p>
+     *
+     * <p>Other databases may require the record key to exist before the
+     * update operation is executed. In these cases, implementations may
+     * reject updates for non-existing records, typically by throwing a
+     * provider-specific exception.</p>
+     *
+     * <pre>{@code
+     * Record record = ...
+     *
+     * RecordManager manager = ...
+     * Record updated = manager.update(record);
+     * }</pre>
+     *
+     * @param record the record to update
+     * @return the updated record instance
+     * @throws NullPointerException when the record is {@code null}
+     */
+    Record update(Record record);
+
 }

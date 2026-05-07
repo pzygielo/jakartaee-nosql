@@ -32,4 +32,27 @@ package jakarta.nosql.communication;
  * or provider-specific manager instances.</p>
  */
 public interface RecordManagerFactory {
+
+    /**
+     * Returns the default {@link RecordManager} associated with
+     * the underlying database implementation.
+     *
+     * <p>The returned manager provides access to the minimal
+     * communication operations defined by the Communication API.</p>
+     *
+     * <p>The configuration and initialization required to create
+     * the manager are determined by the provider implementation.
+     * Providers may configure managers using mechanisms such as
+     * Java properties, environment variables, configuration files,
+     * dependency injection, or provider-specific strategies.</p>
+     *
+     * <pre>{@code
+     * RecordManagerFactory factory = ...
+     *
+     * RecordManager manager = factory.manager();
+     * }</pre>
+     *
+     * @return the default record manager
+     */
+    RecordManager manager();
 }

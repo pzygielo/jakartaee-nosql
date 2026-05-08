@@ -51,4 +51,26 @@ public interface BucketManagerFactory {
      * @throws NullPointerException when the bucket is {@code null}
      */
     BucketManager get(String bucket);
+
+    /**
+     * Returns the default {@link BucketManager} associated with
+     * the underlying database implementation.
+     *
+     * <p>This method allows interaction with key-value databases
+     * that do not expose bucket concepts directly or rely on
+     * provider-defined default communication contexts.</p>
+     *
+     * <p>Implementations may interpret the default manager using
+     * provider-specific strategies such as namespaces, key prefixes,
+     * configuration defaults, or logical grouping mechanisms.</p>
+     *
+     * <pre>{@code
+     * BucketManagerFactory factory = ...
+     *
+     * BucketManager manager = factory.get();
+     * }</pre>
+     *
+     * @return the default bucket manager
+     */
+    BucketManager get();
 }

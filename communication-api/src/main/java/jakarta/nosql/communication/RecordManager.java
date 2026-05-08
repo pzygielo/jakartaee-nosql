@@ -38,8 +38,10 @@ import java.util.Optional;
  *
  * <p>Implementations are expected to preserve the native behavior and
  * semantics of the target NoSQL database.</p>
+ *
+ * @param <T> the managed record type
  */
-public interface RecordManager {
+public interface RecordManager<T extends Record> {
 
     /**
      * Requests the insertion of a new record into the database.

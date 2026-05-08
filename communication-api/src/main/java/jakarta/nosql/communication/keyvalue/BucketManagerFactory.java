@@ -15,5 +15,22 @@
  */
 package jakarta.nosql.communication.keyvalue;
 
+
+/**
+ * Creates {@link BucketManager} instances for key-value communication.
+ *
+ * <p>A {@code BucketManagerFactory} is an entry point to the key-value
+ * portion of the Jakarta NoSQL Communication API. It provides access to
+ * managers associated with bucket names according to the behavior of the
+ * underlying database implementation.</p>
+ *
+ * <p>Some databases expose buckets as first-class structures, while others
+ * may interpret bucket names as namespaces, collections, key prefixes,
+ * logical groups, or provider-specific conventions.</p>
+ *
+ * <p>The configuration, initialization, caching behavior, lifecycle,
+ * visibility guarantees, and creation semantics of managers are determined
+ * by the provider implementation.</p>
+ */
 public interface BucketManagerFactory {
 }

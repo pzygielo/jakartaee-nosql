@@ -40,8 +40,19 @@ import jakarta.nosql.communication.Record;
  */
 public interface KeyValueRecord extends Record {
 
+
     /**
      * Returns the value associated with this record.
+     *
+     * <p>The returned value may represent different data types
+     * according to the underlying database implementation and
+     * provider-specific serialization strategies.</p>
+     *
+     * <pre>{@code
+     * KeyValueRecord record = ...
+     *
+     * String value = record.value();
+     * }</pre>
      *
      * @param <V> the value type
      * @return the record value

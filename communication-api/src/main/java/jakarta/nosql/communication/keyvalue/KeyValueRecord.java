@@ -15,5 +15,8 @@
  */
 package jakarta.nosql.communication.keyvalue;
 
-public interface KeyValueRecord {
+import jakarta.nosql.communication.Record;
+
+public interface KeyValueRecord extends Record {
+
 }

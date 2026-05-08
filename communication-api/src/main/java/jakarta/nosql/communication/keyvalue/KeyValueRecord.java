@@ -38,7 +38,6 @@ import jakarta.nosql.communication.Record;
  * expiration policies, distributed replication, append-only storage,
  * provider-specific metadata, or eventual consistency strategies.</p>
  */
-
 public interface KeyValueRecord extends Record {
 
     /**

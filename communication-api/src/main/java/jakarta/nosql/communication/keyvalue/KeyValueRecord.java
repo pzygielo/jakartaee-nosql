@@ -17,6 +17,9 @@ package jakarta.nosql.communication.keyvalue;
 
 import jakarta.nosql.communication.Record;
 
+/**
+ * Represents a record in a key-value store.
+ */
 public interface KeyValueRecord extends Record {
 
     /**

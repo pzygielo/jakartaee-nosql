@@ -17,6 +17,7 @@ package jakarta.nosql.communication.keyvalue;
 
 import jakarta.nosql.communication.RecordManager;
 
+import java.time.Duration;
 import java.util.Optional;
 
 /**
@@ -102,4 +103,48 @@ public interface BucketManager extends RecordManager<KeyValueRecord> {
      * @throws NullPointerException when the record is {@code null}
      */
     KeyValueRecord put(KeyValueRecord record);
+
+
+    /**
+     * Stores a record in the key-value database using a
+     * time-to-live expiration policy.
+     *
+     * <p>This operation behaves as a complete replacement operation.
+     * When the record key does not exist, the operation behaves as
+     * an insertion. When the key already exists, the existing value
+     * is replaced by the provided record.</p>
+     *
+     * <p>The provided duration defines the maximum lifetime of the
+     * stored record according to the semantics of the underlying
+     * database implementation.</p>
+     *
+     * <p>The expiration behavior, visibility guarantees,
+     * durability model, consistency guarantees, and execution timing
+     * are determined by the underlying database implementation.</p>
+     *
+     * <p>Some databases may execute this operation asynchronously
+     * or using eventual consistency strategies. In such systems,
+     * updates and expiration events may not become immediately
+     * visible across all nodes, replicas, or distributed regions.</p>
+     *
+     * <p>Databases that do not support expiration or time-to-live
+     * policies may reject this operation by throwing
+     * {@link UnsupportedOperationException}.</p>
+     *
+     * <pre>{@code
+     * KeyValueRecord record = ...
+     *
+     * BucketManager manager = ...
+     *
+     * KeyValueRecord stored =
+     *         manager.put(record, Duration.ofMinutes(10));
+     * }</pre>
+     *
+     * @param record the record to store
+     * @param duration the record lifetime
+     * @return the stored record instance
+     * @throws NullPointerException when the record or duration is {@code null}
+     * @throws UnsupportedOperationException when the database does not support TTL
+     */
+    KeyValueRecord put(KeyValueRecord record, Duration duration);
 }

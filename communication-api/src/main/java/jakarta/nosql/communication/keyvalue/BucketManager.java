@@ -67,4 +67,39 @@ public interface BucketManager extends RecordManager<KeyValueRecord> {
      * @return the bucket associated with this manager when available
      */
     Optional<String> bucket();
+
+    /**
+     * Stores a record in the key-value database.
+     *
+     * <p>This operation behaves as a complete replacement operation.
+     * When the record key does not exist, the operation behaves as
+     * an insertion. When the key already exists, the existing value
+     * is replaced by the provided record.</p>
+     *
+     * <p>The replacement semantics, visibility guarantees,
+     * durability model, consistency guarantees, and execution timing
+     * are determined by the underlying database implementation.</p>
+     *
+     * <p>Some databases may execute this operation asynchronously
+     * or using eventual consistency strategies. In such systems,
+     * updates may not become immediately visible across all nodes,
+     * replicas, or distributed regions.</p>
+     *
+     * <p>This operation returns the stored record instance.
+     * Implementations may return the same instance or a new
+     * instance containing additional generated information
+     * or provider-specific metadata.</p>
+     *
+     * <pre>{@code
+     * KeyValueRecord record = ...
+     *
+     * BucketManager manager = ...
+     * KeyValueRecord stored = manager.put(record);
+     * }</pre>
+     *
+     * @param record the record to store
+     * @return the stored record instance
+     * @throws NullPointerException when the record is {@code null}
+     */
+    KeyValueRecord put(KeyValueRecord record);
 }

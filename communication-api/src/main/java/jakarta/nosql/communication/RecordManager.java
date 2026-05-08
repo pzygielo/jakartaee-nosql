@@ -72,7 +72,7 @@ public interface RecordManager<T extends Record> {
      * @return the persisted record instance
      * @throws NullPointerException when the record is {@code null}
      */
-    Record insert(Record record);
+    T insert(T record);
 
     /**
      * Requests the update of an existing record in the database.
@@ -107,7 +107,7 @@ public interface RecordManager<T extends Record> {
      * @return the updated record instance
      * @throws NullPointerException when the record is {@code null}
      */
-    Record update(Record record);
+    T update(T record);
 
     /**
      * Requests the insertion of multiple records into the database.
@@ -144,7 +144,7 @@ public interface RecordManager<T extends Record> {
      * @return the persisted record instances
      * @throws NullPointerException when the records are {@code null}
      */
-    Iterable<Record> insert(Iterable<Record> records);
+    Iterable<T> insert(Iterable<T> records);
 
 
     /**
@@ -185,7 +185,7 @@ public interface RecordManager<T extends Record> {
      * @return the updated record instances
      * @throws NullPointerException when the records are {@code null}
      */
-    Iterable<Record> update(Iterable<Record> records);
+    Iterable<T> update(Iterable<T> records);
 
     /**
      * Retrieves a record using its unique key.
@@ -217,7 +217,7 @@ public interface RecordManager<T extends Record> {
      * @return the matching record when present
      * @throws NullPointerException when the key is {@code null}
      */
-    <K> Optional<Record> findByKey(K key);
+    <K> Optional<T> findByKey(K key);
 
     /**
      * Requests the removal of a record using its unique key.

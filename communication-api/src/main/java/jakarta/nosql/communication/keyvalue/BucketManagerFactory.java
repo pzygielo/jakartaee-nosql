@@ -33,4 +33,22 @@ package jakarta.nosql.communication.keyvalue;
  * by the provider implementation.</p>
  */
 public interface BucketManagerFactory {
+
+    /**
+     * Returns a {@link BucketManager} associated with the provided bucket name.
+     *
+     * <p>The interpretation and semantics of the bucket name are determined
+     * by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * BucketManagerFactory factory = ...
+     *
+     * BucketManager users = factory.get("users");
+     * }</pre>
+     *
+     * @param bucket the bucket name
+     * @return the bucket manager associated with the bucket
+     * @throws NullPointerException when the bucket is {@code null}
+     */
+    BucketManager get(String bucket);
 }

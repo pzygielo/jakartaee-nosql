@@ -18,8 +18,27 @@ package jakarta.nosql.communication.keyvalue;
 import jakarta.nosql.communication.Record;
 
 /**
- * Represents a record in a key-value store.
+ * Represents a record in a key-value database.
+ *
+ * <p>A {@code KeyValueRecord} defines the minimal communication
+ * structure used by key-value systems, where data is represented
+ * as the association between a unique key and a corresponding value.</p>
+ *
+ * <p>This model intentionally preserves the simplicity of key-value
+ * databases and does not impose assumptions about the internal
+ * structure, schema, or semantics of the stored value. The value
+ * may represent primitive types, binary content, serialized objects,
+ * structured documents, or provider-specific data representations.</p>
+ *
+ * <p>The interpretation, serialization strategy, visibility guarantees,
+ * durability semantics, and consistency model associated with the
+ * value are determined by the underlying database implementation.</p>
+ *
+ * <p>Implementations may support additional capabilities such as
+ * expiration policies, distributed replication, append-only storage,
+ * provider-specific metadata, or eventual consistency strategies.</p>
  */
+
 public interface KeyValueRecord extends Record {
 
     /**

@@ -17,6 +17,8 @@ package jakarta.nosql.communication.keyvalue;
 
 import jakarta.nosql.communication.RecordManager;
 
+import java.util.Optional;
+
 /**
  * Defines the communication contract for interacting with
  * key-value databases.
@@ -40,4 +42,29 @@ import jakarta.nosql.communication.RecordManager;
  * models.</p>
  */
 public interface BucketManager extends RecordManager<KeyValueRecord> {
+
+    /**
+     * Returns the bucket associated with this manager when supported
+     * by the underlying database implementation.
+     *
+     * <p>Some key-value databases expose buckets, collections,
+     * namespaces, or equivalent logical grouping concepts as
+     * first-class structures. Other implementations may infer
+     * bucket information from configuration, key conventions,
+     * provider-specific strategies, or may not expose bucket
+     * concepts at all.</p>
+     *
+     * <p>The interpretation and semantics of buckets are determined
+     * by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * BucketManager manager = ...
+     *
+     * manager.bucket()
+     *         .ifPresent(System.out::println);
+     * }</pre>
+     *
+     * @return the bucket associated with this manager when available
+     */
+    Optional<String> bucket();
 }

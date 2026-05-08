@@ -15,5 +15,7 @@
  */
 package jakarta.nosql.communication.keyvalue;
 
-public interface BucketManager {
+import jakarta.nosql.communication.RecordManager;
+
+public interface BucketManager extends RecordManager {
 }

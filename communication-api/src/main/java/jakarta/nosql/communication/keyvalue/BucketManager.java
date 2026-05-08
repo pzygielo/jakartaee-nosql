@@ -17,5 +17,27 @@ package jakarta.nosql.communication.keyvalue;
 
 import jakarta.nosql.communication.RecordManager;
 
+/**
+ * Defines the communication contract for interacting with
+ * key-value databases.
+ *
+ * <p>A {@code BucketManager} specializes {@link RecordManager}
+ * for {@link KeyValueRecord} instances, providing lifecycle
+ * operations aligned with key-value storage semantics.</p>
+ *
+ * <p>This manager preserves the minimal and flexible nature of
+ * key-value systems, where data is represented as the association
+ * between a unique key and a corresponding value.</p>
+ *
+ * <p>The visibility, durability, consistency guarantees,
+ * replication model, batching behavior, and execution semantics
+ * of operations are determined by the underlying database
+ * implementation.</p>
+ *
+ * <p>Implementations may support additional capabilities such as
+ * expiration policies, append-only storage, distributed replication,
+ * provider-specific serialization strategies, or eventual consistency
+ * models.</p>
+ */
 public interface BucketManager extends RecordManager<KeyValueRecord> {
 }

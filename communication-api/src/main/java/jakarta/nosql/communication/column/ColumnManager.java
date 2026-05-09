@@ -44,4 +44,91 @@ import jakarta.nosql.communication.RecordManager;
  * strategies.</p>
  */
 public interface ColumnManager extends RecordManager<ColumnRecord> {
+
+    /**
+     * Stores a record in the column-family database.
+     *
+     * <p>This operation behaves as a complete replacement
+     * operation according to the semantics of the underlying
+     * database implementation.</p>
+     *
+     * <p>When the record key does not exist, the operation
+     * may behave as an insertion. When the key already exists,
+     * the existing record may be replaced, merged, appended,
+     * or updated according to the storage model and provider
+     * implementation.</p>
+     *
+     * <p>The visibility guarantees, durability semantics,
+     * consistency model, partitioning behavior, replication
+     * strategies, batching semantics, and execution timing
+     * associated with this operation are determined by the
+     * provider implementation.</p>
+     *
+     * <p>Some databases may execute this operation
+     * asynchronously or using eventual consistency strategies.
+     * In such systems, updates may not become immediately
+     * visible across all nodes, replicas, or distributed
+     * regions.</p>
+     *
+     * <p>This operation returns the stored record instance.
+     * Implementations may return the same instance or a new
+     * instance containing additional generated information
+     * or provider-specific metadata.</p>
+     *
+     * <pre>{@code
+     * ColumnRecord record = ...
+     *
+     * ColumnManager manager = ...
+     *
+     * ColumnRecord stored = manager.put(record);
+     * }</pre>
+     *
+     * @param record the record to store
+     * @return the stored record instance
+     * @throws NullPointerException when the record is {@code null}
+     */
+    ColumnRecord put(ColumnRecord record);
+
+    /**
+     * Stores multiple records in the column-family database.
+     *
+     * <p>The batching behavior, visibility guarantees,
+     * durability semantics, consistency model, partitioning
+     * behavior, replication strategies, partial failure
+     * handling, and execution timing associated with this
+     * operation are determined by the provider implementation.</p>
+     *
+     * <p>Some databases may process records sequentially,
+     * lazily, asynchronously, or using provider-specific
+     * batching optimizations.</p>
+     *
+     * <p>Depending on the underlying database implementation,
+     * this operation may behave as insertion, replacement,
+     * merge, append, or update operations according to the
+     * storage semantics of the provider.</p>
+     *
+     * <p>Some databases may execute this operation using
+     * eventual consistency strategies. In such systems,
+     * updates may not become immediately visible across all
+     * nodes, replicas, or distributed regions.</p>
+     *
+     * <p>This operation returns the stored record instances.
+     * Implementations may return the same instances or new
+     * instances containing additional generated information
+     * or provider-specific metadata.</p>
+     *
+     * <pre>{@code
+     * Iterable<ColumnRecord> records = ...
+     *
+     * ColumnManager manager = ...
+     *
+     * Iterable<ColumnRecord> stored =
+     *         manager.put(records);
+     * }</pre>
+     *
+     * @param records the records to store
+     * @return the stored record instances
+     * @throws NullPointerException when the records are {@code null}
+     */
+    Iterable<ColumnRecord> put(Iterable<ColumnRecord> records);
 }

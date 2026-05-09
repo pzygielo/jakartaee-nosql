@@ -23,9 +23,7 @@ public interface ColumnRecord extends Record {
 
     <T> T get(String column);
 
-    ColumnRecord add(String column, Object value);
-
-    ColumnRecord remove(String column);
+    boolean contains(String column);
 
     Map<String, Object> columns();
 }

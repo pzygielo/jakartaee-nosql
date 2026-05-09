@@ -19,6 +19,28 @@ import jakarta.nosql.communication.Record;
 
 import java.util.List;
 
+/**
+ * Represents a record in a column-family database.
+ *
+ * <p>A {@code ColumnRecord} defines the minimal communication
+ * structure used by column-family systems, where data is
+ * commonly represented using sparse and partition-oriented
+ * column models.</p>
+ *
+ * <p>In addition to the unique record key inherited from
+ * {@link Record}, column-family databases expose named collections
+ * of columns associated with a logical record structure.</p>
+ *
+ * <p>The interpretation, organization, visibility guarantees,
+ * durability semantics, consistency model, serialization strategy,
+ * and execution behavior associated with records and columns are
+ * determined by the underlying database implementation.</p>
+ *
+ * <p>Implementations may support additional capabilities such
+ * as partitioning, clustering strategies, sparse storage,
+ * distributed replication, append-oriented persistence,
+ * provider-specific metadata, or eventual consistency models.</p>
+ */
 public interface ColumnRecord extends Record {
 
     List<Column> columns();

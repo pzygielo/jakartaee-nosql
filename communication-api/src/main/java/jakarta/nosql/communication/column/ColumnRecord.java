@@ -27,4 +27,6 @@ public interface ColumnRecord extends Record {
 
     boolean contains(String column);
 
+    String name();
+
 }

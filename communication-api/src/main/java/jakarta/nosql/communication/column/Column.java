@@ -29,8 +29,15 @@ package jakarta.nosql.communication.column;
  */
 public interface Column {
 
+
     /**
      * Returns the column name.
+     *
+     * <pre>{@code
+     * Column column = ...
+     *
+     * String name = column.name();
+     * }</pre>
      *
      * @return the column name
      */
@@ -39,9 +46,20 @@ public interface Column {
     /**
      * Returns the column value.
      *
+     * <p>The returned value may represent different data types
+     * according to the serialization and storage semantics
+     * of the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * Column column = ...
+     *
+     * String value = column.value();
+     * }</pre>
+     *
      * @param <T> the value type
      * @return the column value
      */
     <T> T value();
+
 
 }

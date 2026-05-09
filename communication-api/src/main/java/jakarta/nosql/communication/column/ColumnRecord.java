@@ -17,5 +17,9 @@ package jakarta.nosql.communication.column;
 
 import jakarta.nosql.communication.Record;
 
+import java.util.Map;
+
 public interface ColumnRecord extends Record {
+
+    Map<String, Object> columns();
 }

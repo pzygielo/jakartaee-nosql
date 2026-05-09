@@ -86,6 +86,23 @@ public interface ColumnRecord extends Record {
      */
     <T> T get(String column);
 
+    /**
+     * Returns whether this record contains the provided column.
+     *
+     * <p>The existence semantics associated with columns are
+     * determined by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * ColumnRecord record = ...
+     *
+     * boolean contains = record.contains("name");
+     * }</pre>
+     *
+     * @param column the column name
+     * @return {@code true} when the column exists,
+     * otherwise {@code false}
+     * @throws NullPointerException when the column is {@code null}
+     */
     boolean contains(String column);
 
     String name();

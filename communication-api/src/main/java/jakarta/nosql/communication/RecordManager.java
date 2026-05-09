@@ -200,7 +200,7 @@ public interface RecordManager<T extends Record> {
      * or provider-specific key structures.</p>
      *
      * <p>Implementations may perform lookups eagerly, lazily,
-     * locally, remotely, or using distributed resolution strategies
+     * locally, remotely, or using distributed resolution strategies,
      * according to the characteristics of the underlying database.</p>
      *
      * <p>If no matching record exists, this method returns an

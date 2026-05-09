@@ -43,6 +43,24 @@ import java.util.List;
  */
 public interface ColumnRecord extends Record {
 
+
+    /**
+     * Returns the columns associated with this record.
+     *
+     * <p>The organization, ordering guarantees, visibility semantics,
+     * and column structure are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * ColumnRecord record = ...
+     *
+     * for (Column column : record.columns()) {
+     *     System.out.println(column.name());
+     * }
+     * }</pre>
+     *
+     * @return the record columns
+     */
     List<Column> columns();
 
     <T> T get(String column);

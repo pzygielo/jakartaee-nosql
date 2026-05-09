@@ -15,5 +15,7 @@
  */
 package jakarta.nosql.communication.column;
 
-public interface ColumnRecord {
+import jakarta.nosql.communication.Record;
+
+public interface ColumnRecord extends Record {
 }

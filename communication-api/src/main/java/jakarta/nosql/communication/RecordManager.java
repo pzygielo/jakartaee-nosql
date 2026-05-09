@@ -38,8 +38,10 @@ import java.util.Optional;
  *
  * <p>Implementations are expected to preserve the native behavior and
  * semantics of the target NoSQL database.</p>
+ *
+ * @param <T> the managed record type
  */
-public interface RecordManager {
+public interface RecordManager<T extends Record> {
 
     /**
      * Requests the insertion of a new record into the database.
@@ -70,7 +72,7 @@ public interface RecordManager {
      * @return the persisted record instance
      * @throws NullPointerException when the record is {@code null}
      */
-    Record insert(Record record);
+    T insert(T record);
 
     /**
      * Requests the update of an existing record in the database.
@@ -105,7 +107,7 @@ public interface RecordManager {
      * @return the updated record instance
      * @throws NullPointerException when the record is {@code null}
      */
-    Record update(Record record);
+    T update(T record);
 
     /**
      * Requests the insertion of multiple records into the database.
@@ -142,7 +144,7 @@ public interface RecordManager {
      * @return the persisted record instances
      * @throws NullPointerException when the records are {@code null}
      */
-    Iterable<Record> insert(Iterable<Record> records);
+    Iterable<T> insert(Iterable<T> records);
 
 
     /**
@@ -183,7 +185,7 @@ public interface RecordManager {
      * @return the updated record instances
      * @throws NullPointerException when the records are {@code null}
      */
-    Iterable<Record> update(Iterable<Record> records);
+    Iterable<T> update(Iterable<T> records);
 
     /**
      * Retrieves a record using its unique key.
@@ -198,7 +200,7 @@ public interface RecordManager {
      * or provider-specific key structures.</p>
      *
      * <p>Implementations may perform lookups eagerly, lazily,
-     * locally, remotely, or using distributed resolution strategies
+     * locally, remotely, or using distributed resolution strategies,
      * according to the characteristics of the underlying database.</p>
      *
      * <p>If no matching record exists, this method returns an
@@ -215,7 +217,7 @@ public interface RecordManager {
      * @return the matching record when present
      * @throws NullPointerException when the key is {@code null}
      */
-    <K> Optional<Record> findByKey(K key);
+    <K> Optional<T> findByKey(K key);
 
     /**
      * Requests the removal of a record using its unique key.

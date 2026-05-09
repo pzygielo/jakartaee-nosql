@@ -15,10 +15,33 @@
  */
 package jakarta.nosql.communication.column;
 
+/**
+ * Represents a column within a column-family record.
+ *
+ * <p>A {@code Column} defines the association between a
+ * column name and its corresponding value according to
+ * the semantics of the underlying database implementation.</p>
+ *
+ * <p>The interpretation, visibility guarantees, durability
+ * semantics, consistency model, serialization strategy,
+ * and execution behavior associated with columns are
+ * determined by the provider implementation.</p>
+ */
 public interface Column {
 
+    /**
+     * Returns the column name.
+     *
+     * @return the column name
+     */
     String name();
 
+    /**
+     * Returns the column value.
+     *
+     * @param <T> the value type
+     * @return the column value
+     */
     <T> T value();
 
 }

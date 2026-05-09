@@ -105,6 +105,23 @@ public interface ColumnRecord extends Record {
      */
     boolean contains(String column);
 
+    /**
+     * Returns the logical name associated with this record.
+     *
+     * <p>The meaning and semantics of the name are determined
+     * by the underlying database implementation. Depending on
+     * the provider, the name may represent concepts such as
+     * column families, tables, namespaces, logical groups,
+     * or provider-specific structures.</p>
+     *
+     * <pre>{@code
+     * ColumnRecord record = ...
+     *
+     * String name = record.name();
+     * }</pre>
+     *
+     * @return the logical record name
+     */
     String name();
 
 }

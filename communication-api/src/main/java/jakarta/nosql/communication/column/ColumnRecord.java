@@ -63,6 +63,27 @@ public interface ColumnRecord extends Record {
      */
     List<Column> columns();
 
+    /**
+     * Returns the value associated with the provided column name.
+     *
+     * <p>The interpretation, serialization strategy, and visibility
+     * semantics associated with column values are determined by the
+     * underlying database implementation.</p>
+     *
+     * <p>If the column does not exist, this method may return
+     * {@code null} according to the provider implementation.</p>
+     *
+     * <pre>{@code
+     * ColumnRecord record = ...
+     *
+     * String name = record.get("name");
+     * }</pre>
+     *
+     * @param column the column name
+     * @param <T> the column value type
+     * @return the column value
+     * @throws NullPointerException when the column is {@code null}
+     */
     <T> T get(String column);
 
     boolean contains(String column);

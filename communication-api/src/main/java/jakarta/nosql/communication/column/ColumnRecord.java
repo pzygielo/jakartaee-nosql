@@ -17,13 +17,14 @@ package jakarta.nosql.communication.column;
 
 import jakarta.nosql.communication.Record;
 
-import java.util.Map;
+import java.util.List;
 
 public interface ColumnRecord extends Record {
+
+    List<Column> columns();
 
     <T> T get(String column);
 
     boolean contains(String column);
 
-    Map<String, Object> columns();
 }

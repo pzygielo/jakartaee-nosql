@@ -92,23 +92,23 @@ public interface DocumentRecord extends Record {
     <T> T get(String document);
 
     /**
-     * Returns whether this record contains the provided column.
+     * Returns whether this record contains the provided document.
      *
-     * <p>The existence semantics associated with columns are
-     * determined by the underlying database implementation.</p>
+     * <p>The existence semantics associated with document elements
+     * are determined by the underlying database implementation.</p>
      *
      * <pre>{@code
-     * ColumnRecord record = ...
+     * DocumentRecord record = ...
      *
      * boolean contains = record.contains("name");
      * }</pre>
      *
-     * @param column the column name
-     * @return {@code true} when the column exists,
+     * @param document the document name
+     * @return {@code true} when the document exists,
      * otherwise {@code false}
-     * @throws NullPointerException when the column is {@code null}
+     * @throws NullPointerException when the document is {@code null}
      */
-    boolean contains(String column);
+    boolean contains(String document);
 
     /**
      * Returns the logical name associated with this record.

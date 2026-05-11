@@ -116,11 +116,11 @@ public interface DocumentRecord extends Record {
      * <p>The meaning and semantics of the name are determined
      * by the underlying database implementation. Depending on
      * the provider, the name may represent concepts such as
-     * column families, tables, namespaces, logical groups,
+     * collections, namespaces, logical groups, document sets,
      * or provider-specific structures.</p>
      *
      * <pre>{@code
-     * ColumnRecord record = ...
+     * DocumentRecord record = ...
      *
      * String name = record.name();
      * }</pre>

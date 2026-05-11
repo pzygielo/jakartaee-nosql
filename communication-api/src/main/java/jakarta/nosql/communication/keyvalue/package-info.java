@@ -15,29 +15,62 @@
  */
 
 /**
+ * Provides the key-value communication model for Jakarta NoSQL.
  *
- * <p>The key-value communication model represents interaction with NoSQL
- * databases based on the association of a unique key to a value. It focuses
- * on fundamental operations such as storing, retrieving, and removing data
- * using a key as the primary access mechanism.</p>
+ * <p>The key-value communication model represents interaction
+ * with NoSQL databases based on the association of a unique
+ * key to a value. It focuses on fundamental operations such
+ * as storing, retrieving, replacing, and removing data using
+ * a key as the primary access mechanism.</p>
  *
- * <p>This model is intentionally minimal and reflects the intrinsic
- * characteristics of key-value systems. It does not introduce query
- * capabilities or access patterns beyond key-based interaction.</p>
+ * <p>This model defines a minimal and extensible communication
+ * structure aligned with the native behavior of key-value
+ * databases. It intentionally avoids introducing query
+ * abstractions, traversal semantics, aggregation models,
+ * or relational-style operations beyond key-based access.</p>
  *
- * <p>The design supports extensibility to accommodate variations across
- * key-value databases, including features such as expiration, atomic
- * operations, or distributed consistency. The availability and behavior of
- * these features are determined by the underlying database.</p>
+ * <p>The key-value model commonly represents some of the
+ * simplest and most scalable NoSQL storage systems, where
+ * data access is optimized around direct key resolution,
+ * distributed partitioning, replication, and high-throughput
+ * operations.</p>
  *
- * <p>This model is part of the Communication API and follows its principles
- * of optional adoption, minimal abstraction, and preservation of native
- * database behavior. Implementations may extend or adapt this model to
- * support provider-specific capabilities.</p>
+ * <p>The APIs defined in this package provide a low-level
+ * communication layer designed to integrate with higher-level
+ * frameworks, mapping technologies, provider implementations,
+ * and Jakarta specifications.</p>
  *
- * <p>In summary, the key-value communication model defines a minimal and
- * extensible foundation for interacting with key-value NoSQL systems,
- * preserving their simplicity while enabling integration within Jakarta
- * NoSQL.</p>
+ * <p>The design supports extensibility to accommodate
+ * variations across key-value databases, including capabilities
+ * such as expiration policies, atomic operations, distributed
+ * consistency strategies, replication models, batching
+ * optimizations, or provider-specific behaviors. The
+ * availability and semantics of these capabilities are
+ * determined by the underlying database implementation.</p>
+ *
+ * <p>This model is part of the Jakarta NoSQL Communication API
+ * and follows its principles of optional adoption, minimal
+ * abstraction, extensibility, and preservation of native
+ * database semantics. Implementations may extend or adapt
+ * this model to support provider-specific capabilities.</p>
+ *
+ *
+ * <pre>{@code
+ * BucketManagerFactory factory = ...
+ *
+ * BucketManager manager = factory.get("users");
+ *
+ * KeyValueRecord record = ...
+ *
+ * manager.put(record);
+ *
+ * Optional<KeyValueRecord> result =
+ *         manager.findByKey("user:10");
+ * }</pre>
+ *
+ * <p>In summary, the key-value communication model defines a
+ * minimal, low-level, and extensible foundation for
+ * interacting with key-value NoSQL systems while preserving
+ * their native operational characteristics.</p>
  */
 package jakarta.nosql.communication.keyvalue;

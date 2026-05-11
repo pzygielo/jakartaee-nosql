@@ -87,7 +87,7 @@ public interface DocumentManager extends RecordManager<DocumentRecord> {
      * @return the stored record instance
      * @throws NullPointerException when the record is {@code null}
      */
-    ColumnRecord put(DocumentRecord record);
+    DocumentRecord put(DocumentRecord record);
 
     /**
      * Stores multiple records in the column-family database.

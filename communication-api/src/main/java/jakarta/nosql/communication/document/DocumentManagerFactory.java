@@ -44,27 +44,26 @@ import jakarta.nosql.communication.column.ColumnManager;
  */
 public interface DocumentManagerFactory {
 
-
     /**
-     * Returns the default {@link ColumnManager} associated
+     * Returns the default {@link DocumentManager} associated
      * with the underlying database implementation.
      *
-     * <p>This method allows interaction with column-family
-     * databases that rely on provider-defined default
-     * communication contexts.</p>
+     * <p>This method allows interaction with document databases
+     * that rely on provider-defined default communication
+     * contexts.</p>
      *
      * <pre>{@code
-     * ColumnManagerFactory factory = ...
+     * DocumentManagerFactory factory = ...
      *
-     * ColumnManager manager = factory.get();
+     * DocumentManager manager = factory.get();
      * }</pre>
      *
-     * @return the default column manager
+     * @return the default document manager
      */
-    DocumentManagerFactory get();
+    DocumentManager get();
 
     /**
-     * Returns a {@link ColumnManager} associated with the
+     * Returns a {@link DocumentManager} associated with the
      * provided logical name.
      *
      * <p>The interpretation and semantics of the provided
@@ -72,15 +71,15 @@ public interface DocumentManagerFactory {
      * implementation.</p>
      *
      * <pre>{@code
-     * ColumnManagerFactory factory = ...
+     * DocumentManagerFactory factory = ...
      *
-     * ColumnManager manager =
+     * DocumentManager manager =
      *         factory.get("users");
      * }</pre>
      *
      * @param name the logical name associated with the manager
-     * @return the column manager associated with the provided name
+     * @return the document manager associated with the provided name
      * @throws NullPointerException when the name is {@code null}
      */
-    DocumentManagerFactory get(String name);
+    DocumentManager get(String name);
 }

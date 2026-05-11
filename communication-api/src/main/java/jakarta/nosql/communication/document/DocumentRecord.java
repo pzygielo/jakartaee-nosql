@@ -68,27 +68,28 @@ public interface DocumentRecord extends Record {
     List<Document> documents();
 
     /**
-     * Returns the value associated with the provided column name.
+     * Returns the value associated with the provided document name.
      *
-     * <p>The interpretation, serialization strategy, and visibility
-     * semantics associated with column values are determined by the
-     * underlying database implementation.</p>
+     * <p>The interpretation, serialization strategy, hierarchical
+     * structure, and visibility semantics associated with document
+     * values are determined by the underlying database
+     * implementation.</p>
      *
-     * <p>If the column does not exist, this method may return
-     * {@code null} according to the provider implementation.</p>
+     * <p>If the document element does not exist, this method may
+     * return {@code null} according to the provider implementation.</p>
      *
      * <pre>{@code
-     * ColumnRecord record = ...
+     * DocumentRecord record = ...
      *
      * String name = record.get("name");
      * }</pre>
      *
-     * @param column the column name
-     * @param <T> the column value type
-     * @return the column value
-     * @throws NullPointerException when the column is {@code null}
+     * @param document the document name
+     * @param <T> the document value type
+     * @return the document value
+     * @throws NullPointerException when the document is {@code null}
      */
-    <T> T get(String column);
+    <T> T get(String document);
 
     /**
      * Returns whether this record contains the provided column.

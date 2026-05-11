@@ -20,29 +20,28 @@ import jakarta.nosql.communication.column.ColumnRecord;
 
 /**
  * Defines the communication contract for interacting with
- * column-family databases.
+ * document databases.
  *
- * <p>A {@code ColumnManager} specializes {@link RecordManager}
- * for {@link ColumnRecord} instances, providing lifecycle
- * operations aligned with column-family storage semantics.</p>
+ * <p>A {@code DocumentManager} specializes {@link RecordManager}
+ * for {@link DocumentRecord} instances, providing lifecycle
+ * operations aligned with document storage semantics.</p>
  *
- * <p>Column-family databases commonly organize data using
- * sparse and partition-oriented models, where records may
- * contain dynamic collections of columns associated with
- * logical structures defined by the underlying database
- * implementation.</p>
+ * <p>Document databases commonly organize data using
+ * hierarchical and nested structures, where records may
+ * contain dynamic collections of document elements
+ * associated with logical structures defined by the
+ * underlying database implementation.</p>
  *
  * <p>The visibility guarantees, durability semantics,
- * consistency model, partitioning behavior, replication
- * strategies, batching semantics, and execution timing
- * associated with operations are determined by the
- * provider implementation.</p>
+ * consistency model, replication strategies, batching
+ * semantics, and execution timing associated with
+ * operations are determined by the provider implementation.</p>
  *
  * <p>Implementations may support additional capabilities
- * such as clustering strategies, sparse storage models,
- * append-oriented persistence, distributed replication,
- * provider-specific optimizations, or eventual consistency
- * strategies.</p>
+ * such as nested documents, hierarchical structures,
+ * distributed replication, provider-specific serialization
+ * strategies, schema flexibility, or eventual consistency
+ * models.</p>
  */
 public interface DocumentManager extends RecordManager<DocumentRecord> {
 

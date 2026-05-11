@@ -36,15 +36,15 @@ public interface Document {
 
 
     /**
-     * Returns the column name.
+     * Returns the document name.
      *
      * <pre>{@code
-     * Column column = ...
+     * Document document = ...
      *
-     * String name = column.name();
+     * String name = document.name();
      * }</pre>
      *
-     * @return the column name
+     * @return the document name
      */
     String name();
 

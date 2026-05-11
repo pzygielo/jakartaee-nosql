@@ -49,20 +49,24 @@ public interface Document {
     String name();
 
     /**
-     * Returns the column value.
+     * Returns the document value.
      *
      * <p>The returned value may represent different data types
      * according to the serialization and storage semantics
      * of the underlying database implementation.</p>
      *
-     * <pre>{@code
-     * Column column = ...
+     * <p>Depending on the provider implementation, the value
+     * may represent primitive values, collections, nested
+     * documents, or provider-specific structures.</p>
      *
-     * String value = column.value();
+     * <pre>{@code
+     * Document document = ...
+     *
+     * String value = document.value();
      * }</pre>
      *
      * @param <T> the value type
-     * @return the column value
+     * @return the document value
      */
     <T> T value();
 

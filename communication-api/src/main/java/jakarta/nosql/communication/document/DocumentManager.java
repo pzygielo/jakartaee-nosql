@@ -44,7 +44,7 @@ import jakarta.nosql.communication.column.ColumnRecord;
  * provider-specific optimizations, or eventual consistency
  * strategies.</p>
  */
-public interface DocumentManager extends RecordManager<ColumnRecord> {
+public interface DocumentManager extends RecordManager<DocumentRecord> {
 
     /**
      * Stores a record in the column-family database.
@@ -88,7 +88,7 @@ public interface DocumentManager extends RecordManager<ColumnRecord> {
      * @return the stored record instance
      * @throws NullPointerException when the record is {@code null}
      */
-    ColumnRecord put(ColumnRecord record);
+    ColumnRecord put(DocumentRecord record);
 
     /**
      * Stores multiple records in the column-family database.
@@ -131,5 +131,5 @@ public interface DocumentManager extends RecordManager<ColumnRecord> {
      * @return the stored record instances
      * @throws NullPointerException when the records are {@code null}
      */
-    Iterable<ColumnRecord> put(Iterable<ColumnRecord> records);
+    Iterable<ColumnRecord> put(Iterable<DocumentRecord> records);
 }

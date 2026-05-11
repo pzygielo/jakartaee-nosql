@@ -16,15 +16,20 @@
 package jakarta.nosql.communication.document;
 
 /**
- * Represents a column within a column-family record.
+ * Represents a document element within a document database record.
  *
- * <p>A {@code Column} defines the association between a
- * column name and its corresponding value according to
+ * <p>A {@code Document} defines the association between a
+ * document name and its corresponding value according to
  * the semantics of the underlying database implementation.</p>
+ *
+ * <p>Document databases commonly organize data using hierarchical
+ * and nested structures, where document elements may contain
+ * primitive values, collections, nested documents, or
+ * provider-specific representations.</p>
  *
  * <p>The interpretation, visibility guarantees, durability
  * semantics, consistency model, serialization strategy,
- * and execution behavior associated with columns are
+ * and execution behavior associated with documents are
  * determined by the provider implementation.</p>
  */
 public interface Document {

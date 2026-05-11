@@ -18,18 +18,19 @@ package jakarta.nosql.communication.document;
 import jakarta.nosql.communication.column.ColumnManager;
 
 /**
- * Creates {@link ColumnManager} instances for column-family
- * communication.
+ * Creates {@link DocumentManager} instances for document
+ * database communication.
  *
- * <p>A {@code ColumnManagerFactory} is an entry point to the
- * column-family portion of the Jakarta NoSQL Communication API.
+ * <p>A {@code DocumentManagerFactory} is an entry point to
+ * the document portion of the Jakarta NoSQL Communication API.
  * It provides access to managers associated with logical names
  * according to the behavior of the underlying database
  * implementation.</p>
  *
  * <p>Depending on the provider implementation, names may
- * represent concepts such as column families, tables,
- * namespaces, logical groups, or provider-specific structures.</p>
+ * represent concepts such as collections, namespaces,
+ * logical groups, document sets, or provider-specific
+ * structures.</p>
  *
  * <p>The configuration, initialization, caching behavior,
  * lifecycle semantics, visibility guarantees, and manager

@@ -16,7 +16,6 @@
 package jakarta.nosql.communication.document;
 
 import jakarta.nosql.communication.Record;
-import jakarta.nosql.communication.column.Column;
 
 import java.util.List;
 

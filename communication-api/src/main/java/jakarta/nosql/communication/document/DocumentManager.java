@@ -16,7 +16,6 @@
 package jakarta.nosql.communication.document;
 
 import jakarta.nosql.communication.RecordManager;
-import jakarta.nosql.communication.column.ColumnRecord;
 
 /**
  * Defines the communication contract for interacting with

@@ -15,8 +15,6 @@
  */
 package jakarta.nosql.communication.document;
 
-import jakarta.nosql.communication.column.ColumnManager;
-
 /**
  * Creates {@link DocumentManager} instances for document
  * database communication.

@@ -89,13 +89,13 @@ public interface DocumentManager extends RecordManager<DocumentRecord> {
     DocumentRecord put(DocumentRecord record);
 
     /**
-     * Stores multiple records in the column-family database.
+     * Stores multiple records in the document database.
      *
      * <p>The batching behavior, visibility guarantees,
-     * durability semantics, consistency model, partitioning
-     * behavior, replication strategies, partial failure
-     * handling, and execution timing associated with this
-     * operation are determined by the provider implementation.</p>
+     * durability semantics, consistency model, replication
+     * strategies, partial failure handling, and execution
+     * timing associated with this operation are determined
+     * by the provider implementation.</p>
      *
      * <p>Some databases may process records sequentially,
      * lazily, asynchronously, or using provider-specific
@@ -117,11 +117,11 @@ public interface DocumentManager extends RecordManager<DocumentRecord> {
      * or provider-specific metadata.</p>
      *
      * <pre>{@code
-     * Iterable<ColumnRecord> records = ...
+     * Iterable<DocumentRecord> records = ...
      *
-     * ColumnManager manager = ...
+     * DocumentManager manager = ...
      *
-     * Iterable<ColumnRecord> stored =
+     * Iterable<DocumentRecord> stored =
      *         manager.put(records);
      * }</pre>
      *
@@ -129,5 +129,5 @@ public interface DocumentManager extends RecordManager<DocumentRecord> {
      * @return the stored record instances
      * @throws NullPointerException when the records are {@code null}
      */
-    Iterable<ColumnRecord> put(Iterable<DocumentRecord> records);
+    Iterable<DocumentRecord> put(Iterable<DocumentRecord> records);
 }

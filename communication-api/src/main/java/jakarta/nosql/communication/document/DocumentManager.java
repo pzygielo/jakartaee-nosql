@@ -46,7 +46,7 @@ import jakarta.nosql.communication.column.ColumnRecord;
 public interface DocumentManager extends RecordManager<DocumentRecord> {
 
     /**
-     * Stores a record in the column-family database.
+     * Stores a record in the document database.
      *
      * <p>This operation behaves as a complete replacement
      * operation according to the semantics of the underlying
@@ -59,10 +59,9 @@ public interface DocumentManager extends RecordManager<DocumentRecord> {
      * implementation.</p>
      *
      * <p>The visibility guarantees, durability semantics,
-     * consistency model, partitioning behavior, replication
-     * strategies, batching semantics, and execution timing
-     * associated with this operation are determined by the
-     * provider implementation.</p>
+     * consistency model, replication strategies, batching
+     * semantics, and execution timing associated with this
+     * operation are determined by the provider implementation.</p>
      *
      * <p>Some databases may execute this operation
      * asynchronously or using eventual consistency strategies.
@@ -76,11 +75,11 @@ public interface DocumentManager extends RecordManager<DocumentRecord> {
      * or provider-specific metadata.</p>
      *
      * <pre>{@code
-     * ColumnRecord record = ...
+     * DocumentRecord record = ...
      *
-     * ColumnManager manager = ...
+     * DocumentManager manager = ...
      *
-     * ColumnRecord stored = manager.put(record);
+     * DocumentRecord stored = manager.put(record);
      * }</pre>
      *
      * @param record the record to store

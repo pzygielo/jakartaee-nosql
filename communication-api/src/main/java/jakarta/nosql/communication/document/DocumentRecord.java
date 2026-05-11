@@ -21,26 +21,29 @@ import jakarta.nosql.communication.column.Column;
 import java.util.List;
 
 /**
- * Represents a record in a column-family database.
+ * Represents a record in a document database.
  *
- * <p>A {@code ColumnRecord} defines the minimal communication
- * structure used by column-family systems, where data is
- * commonly represented using sparse and partition-oriented
- * column models.</p>
+ * <p>A {@code DocumentRecord} defines the minimal communication
+ * structure used by document-oriented systems, where data is
+ * commonly represented using hierarchical and nested document
+ * models.</p>
  *
  * <p>In addition to the unique record key inherited from
- * {@link Record}, column-family databases expose named collections
- * of columns associated with a logical record structure.</p>
+ * {@link Record}, document databases expose named collections
+ * of document elements associated with a logical record
+ * structure.</p>
  *
  * <p>The interpretation, organization, visibility guarantees,
- * durability semantics, consistency model, serialization strategy,
- * and execution behavior associated with records and columns are
- * determined by the underlying database implementation.</p>
+ * durability semantics, consistency model, serialization
+ * strategy, and execution behavior associated with records
+ * and document elements are determined by the underlying
+ * database implementation.</p>
  *
  * <p>Implementations may support additional capabilities such
- * as partitioning, clustering strategies, sparse storage,
- * distributed replication, append-oriented persistence,
- * provider-specific metadata, or eventual consistency models.</p>
+ * as nested documents, hierarchical structures, schema
+ * flexibility, distributed replication, provider-specific
+ * serialization models, append-oriented persistence,
+ * or eventual consistency strategies.</p>
  */
 public interface DocumentRecord extends Record {
 

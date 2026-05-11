@@ -60,7 +60,7 @@ public interface DocumentManagerFactory {
      *
      * @return the default column manager
      */
-    ColumnManager get();
+    DocumentManagerFactory get();
 
     /**
      * Returns a {@link ColumnManager} associated with the
@@ -81,5 +81,5 @@ public interface DocumentManagerFactory {
      * @return the column manager associated with the provided name
      * @throws NullPointerException when the name is {@code null}
      */
-    ColumnManager get(String name);
+    DocumentManagerFactory get(String name);
 }

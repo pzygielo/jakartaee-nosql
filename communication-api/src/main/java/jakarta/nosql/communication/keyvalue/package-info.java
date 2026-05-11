@@ -23,27 +23,17 @@
  * as storing, retrieving, replacing, and removing data using
  * a key as the primary access mechanism.</p>
  *
- *
+ * <p>The APIs defined in this package provide a minimal and
+ * extensible communication structure aligned with the native
+ * behavior of key-value databases:</p>
  *
  * <pre>{@code
  * BucketManagerFactory factory = ...
  *
  * BucketManager manager = factory.get("users");
- * }</pre>
  *
- * <p>Records are represented using a key and a value structure:</p>
- *
- * <pre>{@code
  * KeyValueRecord record = ...
  *
- * String key = record.key();
- * String value = record.value();
- * }</pre>
- *
- * <p>The manager provides the basic lifecycle operations for
- * interacting with key-value systems:</p>
- *
- * <pre>{@code
  * manager.put(record);
  *
  * Optional<KeyValueRecord> result =
@@ -52,9 +42,7 @@
  * manager.deleteByKey("user:10");
  * }</pre>
  *
- * <p>This model defines a minimal and extensible communication
- * structure aligned with the native behavior of key-value
- * databases. It intentionally avoids introducing query
+ * <p>This model intentionally avoids introducing query
  * abstractions, traversal semantics, aggregation models,
  * or relational-style operations beyond key-based access.</p>
  *
@@ -63,16 +51,6 @@
  * such as expiration policies, atomic operations, distributed
  * consistency strategies, replication models, batching
  * optimizations, or provider-specific behaviors.</p>
- *
- * <p>Provider-specific APIs may extend this model to expose
- * additional capabilities:</p>
- *
- * <pre>{@code
- * public interface RedisBucketManager extends BucketManager {
- *
- *     void increment(String key);
- * }
- * }</pre>
  *
  * <p>This model is part of the Jakarta NoSQL Communication API
  * and follows its principles of optional adoption, minimal

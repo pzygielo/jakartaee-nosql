@@ -49,23 +49,23 @@ public interface DocumentRecord extends Record {
 
 
     /**
-     * Returns the columns associated with this record.
+     * Returns the documents associated with this record.
      *
-     * <p>The organization, ordering guarantees, visibility semantics,
-     * and column structure are determined by the underlying database
-     * implementation.</p>
+     * <p>The organization, ordering guarantees, visibility
+     * semantics, and document structure are determined by
+     * the underlying database implementation.</p>
      *
      * <pre>{@code
-     * ColumnRecord record = ...
+     * DocumentRecord record = ...
      *
-     * for (Column column : record.columns()) {
-     *     System.out.println(column.name());
+     * for (Document document : record.documents()) {
+     *     System.out.println(document.name());
      * }
      * }</pre>
      *
-     * @return the record columns
+     * @return the record documents
      */
-    List<Column> columns();
+    List<Document> documents();
 
     /**
      * Returns the value associated with the provided column name.

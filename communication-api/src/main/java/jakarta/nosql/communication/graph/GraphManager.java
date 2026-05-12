@@ -80,7 +80,38 @@ public interface GraphManager {
      */
     Vertex put(Vertex vertex);
 
+    /**
+     * Stores an edge in the graph database.
+     *
+     * <p>This operation behaves according to the semantics
+     * of the underlying database implementation.</p>
+     *
+     * <p>When the edge identifier does not exist,
+     * the operation may behave as an insertion. When the
+     * identifier already exists, the existing edge may
+     * be replaced, merged, updated, or synchronized
+     * according to the provider implementation.</p>
+     *
+     * <p>The visibility guarantees, durability semantics,
+     * consistency model, graph synchronization behavior,
+     * connectivity semantics, and execution timing
+     * associated with this operation are determined by
+     * the provider implementation.</p>
+     *
+     * <pre>{@code
+     * GraphManager manager = ...
+     *
+     * Edge edge = ...
+     *
+     * Edge stored = manager.put(edge);
+     * }</pre>
+     *
+     * @param edge the edge to store
+     * @return the stored edge instance
+     * @throws NullPointerException when the edge is {@code null}
+     */
     Edge put(Edge edge);
+
 
     Optional<Vertex> findVertexById(Object id);
 

@@ -41,4 +41,22 @@ package jakarta.nosql.communication.graph;
  * strategies.</p>
  */
 public interface GraphManagerFactory {
+
+    /**
+     * Returns the default {@link GraphManager} associated
+     * with the underlying database implementation.
+     *
+     * <p>This method allows interaction with graph databases
+     * that rely on provider-defined default communication
+     * contexts.</p>
+     *
+     * <pre>{@code
+     * GraphManagerFactory factory = ...
+     *
+     * GraphManager manager = factory.get();
+     * }</pre>
+     *
+     * @return the default graph manager
+     */
+    GraphManager get();
 }

@@ -39,4 +39,43 @@ package jakarta.nosql.communication.graph;
  * consistency strategies.</p>
  */
 public interface Edge extends GraphElement {
+
+
+    /**
+     * Returns the source vertex identifier associated
+     * with this edge.
+     *
+     * <p>The interpretation and structure of the identifier
+     * are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * Edge edge = ...
+     *
+     * String source = edge.source();
+     * }</pre>
+     *
+     * @param <K> the identifier type
+     * @return the source vertex identifier
+     */
+    <K> K source();
+
+    /**
+     * Returns the target vertex identifier associated
+     * with this edge.
+     *
+     * <p>The interpretation and structure of the identifier
+     * are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * Edge edge = ...
+     *
+     * String target = edge.target();
+     * }</pre>
+     *
+     * @param <K> the identifier type
+     * @return the target vertex identifier
+     */
+    <K> K target();
 }

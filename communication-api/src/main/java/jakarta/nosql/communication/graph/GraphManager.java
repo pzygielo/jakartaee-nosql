@@ -185,6 +185,25 @@ public interface GraphManager {
      */
     <K> void deleteVertexById(K id);
 
-    void deleteEdgeById(Object id);
+    /**
+     * Requests the removal of an edge using its identifier.
+     *
+     * <p>The visibility guarantees, graph synchronization
+     * semantics, durability semantics, consistency model,
+     * and execution timing associated with this operation
+     * are determined by the provider implementation.</p>
+     *
+     * <pre>{@code
+     * GraphManager manager = ...
+     *
+     * manager.deleteEdgeById("edge:10");
+     * }</pre>
+     *
+     * @param id the edge identifier
+     * @param <K> the identifier type
+     * @throws NullPointerException when the identifier
+     * is {@code null}
+     */
+    <K> void deleteEdgeById(K id);
 
 }

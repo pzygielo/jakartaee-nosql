@@ -13,22 +13,22 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
-package jakarta.nosql.communication.document;
+package jakarta.nosql.communication.graph;
 
 /**
- * Creates {@link DocumentManager} instances for document
- * database communication.
+ * Creates {@link GraphManager} instances for graph database
+ * communication.
  *
- * <p>A {@code DocumentManagerFactory} is an entry point to
- * the document portion of the Jakarta NoSQL Communication API.
- * It provides access to managers associated with logical names
- * according to the behavior of the underlying database
- * implementation.</p>
+ * <p>A {@code GraphManagerFactory} is an entry point to the
+ * graph portion of the Jakarta NoSQL Communication API.
+ * It provides access to managers associated with logical
+ * graph structures according to the behavior of the
+ * underlying database implementation.</p>
  *
  * <p>Depending on the provider implementation, names may
- * represent concepts such as collections, namespaces,
- * logical groups, document sets, or provider-specific
- * structures.</p>
+ * represent concepts such as graphs, namespaces,
+ * logical graph groups, databases, or provider-specific
+ * graph structures.</p>
  *
  * <p>The configuration, initialization, caching behavior,
  * lifecycle semantics, visibility guarantees, and manager
@@ -40,38 +40,39 @@ package jakarta.nosql.communication.document;
  * files, dependency injection, or provider-specific
  * strategies.</p>
  */
-public interface DocumentManagerFactory {
+public interface GraphManagerFactory {
 
     /**
-     * Returns a {@link DocumentManager} associated with the
+     * Returns a {@link GraphManager} associated with the
      * provider-defined communication context.
      *
      * <p>The underlying database implementation determines
-     * how the document manager is resolved and configured.</p>
+     * how the graph manager is resolved and configured.</p>
      *
      * <p>Depending on the provider implementation, the manager
-     * may be associated with a default collection,
-     * a configured namespace, an injected communication
-     * context, environment-based configuration,
-     * or provider-specific document structures.</p>
+     * may be associated with a default graph, a configured
+     * namespace, an injected communication context,
+     * environment-based configuration, or provider-specific
+     * graph structures.</p>
      *
      * <pre>{@code
-     * DocumentManagerFactory factory = ...
+     * GraphManagerFactory factory = ...
      *
-     * DocumentManager manager = factory.get();
+     * GraphManager manager = factory.get();
      * }</pre>
      *
-     * @return the document manager associated with the
+     * @return the graph manager associated with the
      * provider-defined communication context
      * @throws IllegalStateException when the provider
      * cannot resolve a communication context or when
      * the underlying configuration is incomplete
      * or invalid
      */
-    DocumentManager get();
+    GraphManager get();
+
 
     /**
-     * Returns a {@link DocumentManager} associated with the
+     * Returns a {@link GraphManager} associated with the
      * provided logical name.
      *
      * <p>The interpretation and semantics of the provided
@@ -79,15 +80,15 @@ public interface DocumentManagerFactory {
      * implementation.</p>
      *
      * <pre>{@code
-     * DocumentManagerFactory factory = ...
+     * GraphManagerFactory factory = ...
      *
-     * DocumentManager manager =
-     *         factory.get("users");
+     * GraphManager manager =
+     *         factory.get("social");
      * }</pre>
      *
      * @param name the logical name associated with the manager
-     * @return the document manager associated with the provided name
+     * @return the graph manager associated with the provided name
      * @throws NullPointerException when the name is {@code null}
      */
-    DocumentManager get(String name);
+    GraphManager get(String name);
 }

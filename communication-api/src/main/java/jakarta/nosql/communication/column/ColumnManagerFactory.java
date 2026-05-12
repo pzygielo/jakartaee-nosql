@@ -43,12 +43,17 @@ public interface ColumnManagerFactory {
 
 
     /**
-     * Returns the default {@link ColumnManager} associated
-     * with the underlying database implementation.
+     * Returns a {@link ColumnManager} associated with the
+     * provider-defined communication context.
      *
-     * <p>This method allows interaction with column-family
-     * databases that rely on provider-defined default
-     * communication contexts.</p>
+     * <p>The underlying database implementation determines
+     * how the column manager is resolved and configured.</p>
+     *
+     * <p>Depending on the provider implementation, the manager
+     * may be associated with a default column family,
+     * a configured namespace, an injected communication
+     * context, environment-based configuration,
+     * or provider-specific column structures.</p>
      *
      * <pre>{@code
      * ColumnManagerFactory factory = ...
@@ -56,7 +61,12 @@ public interface ColumnManagerFactory {
      * ColumnManager manager = factory.get();
      * }</pre>
      *
-     * @return the default column manager
+     * @return the column manager associated with the
+     * provider-defined communication context
+     * @throws IllegalStateException when the provider
+     * cannot resolve a communication context or when
+     * the underlying configuration is incomplete
+     * or invalid
      */
     ColumnManager get();
 

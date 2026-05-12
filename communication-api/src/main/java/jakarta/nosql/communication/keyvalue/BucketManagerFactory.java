@@ -53,16 +53,18 @@ public interface BucketManagerFactory {
     BucketManager get(String bucket);
 
     /**
-     * Returns the default {@link BucketManager} associated with
-     * the underlying database implementation.
+     * Returns a {@link BucketManager} associated with the
+     * provider-defined communication context.
      *
-     * <p>This method allows interaction with key-value databases
-     * that do not expose bucket concepts directly or rely on
-     * provider-defined default communication contexts.</p>
+     * <p>The underlying database implementation determines
+     * how the bucket manager is resolved and configured.</p>
      *
-     * <p>Implementations may interpret the default manager using
-     * provider-specific strategies such as namespaces, key prefixes,
-     * configuration defaults, or logical grouping mechanisms.</p>
+     * <p>Depending on the provider implementation, the manager
+     * may be associated with a default bucket, a configured
+     * namespace, an injected communication context,
+     * environment-based configuration, key prefixes,
+     * logical grouping mechanisms, or provider-specific
+     * key-value structures.</p>
      *
      * <pre>{@code
      * BucketManagerFactory factory = ...
@@ -70,7 +72,12 @@ public interface BucketManagerFactory {
      * BucketManager manager = factory.get();
      * }</pre>
      *
-     * @return the default bucket manager
+     * @return the bucket manager associated with the
+     * provider-defined communication context
+     * @throws IllegalStateException when the provider
+     * cannot resolve a communication context or when
+     * the underlying configuration is incomplete
+     * or invalid
      */
     BucketManager get();
 }

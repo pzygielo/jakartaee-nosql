@@ -57,23 +57,4 @@ public interface Vertex {
      */
     String label();
 
-    /**
-     * Returns the edges associated with this vertex.
-     *
-     * <p>The organization, direction semantics, visibility
-     * guarantees, connectivity behavior, and relationship
-     * structure are determined by the underlying database
-     * implementation.</p>
-     *
-     * <pre>{@code
-     * Vertex vertex = ...
-     *
-     * for (Edge edge : vertex.edges()) {
-     *     System.out.println(edge.type());
-     * }
-     * }</pre>
-     *
-     * @return the vertex edges
-     */
-    List<Edge> edges();
 }

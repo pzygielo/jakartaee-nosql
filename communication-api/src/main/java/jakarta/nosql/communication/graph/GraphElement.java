@@ -40,4 +40,21 @@ package jakarta.nosql.communication.graph;
  * consistency strategies.</p>
  */
 public interface GraphElement {
+
+    /**
+     * Returns the graph element identifier.
+     *
+     * <p>The interpretation and structure of the identifier
+     * are determined by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * GraphElement element = ...
+     *
+     * String id = element.id();
+     * }</pre>
+     *
+     * @param <K> the identifier type
+     * @return the graph element identifier
+     */
+    <K> K id();
 }

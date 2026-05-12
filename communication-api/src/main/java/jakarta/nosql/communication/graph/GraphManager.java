@@ -158,8 +158,32 @@ public interface GraphManager {
      */
     <K> Optional<Edge> findEdgeById(K id);
 
-
-    void deleteVertexById(Object id);
+    /**
+     * Requests the removal of a vertex using its identifier.
+     *
+     * <p>The visibility guarantees, graph synchronization
+     * semantics, relationship consistency behavior,
+     * durability semantics, and execution timing associated
+     * with this operation are determined by the provider
+     * implementation.</p>
+     *
+     * <p>Depending on the underlying database implementation,
+     * removing a vertex may affect associated edges,
+     * relationships, graph connectivity, or provider-specific
+     * graph structures.</p>
+     *
+     * <pre>{@code
+     * GraphManager manager = ...
+     *
+     * manager.deleteVertexById("user:10");
+     * }</pre>
+     *
+     * @param id the vertex identifier
+     * @param <K> the identifier type
+     * @throws NullPointerException when the identifier
+     * is {@code null}
+     */
+    <K> void deleteVertexById(K id);
 
     void deleteEdgeById(Object id);
 

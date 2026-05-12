@@ -16,6 +16,7 @@
 package jakarta.nosql.communication.graph;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Represents a graph element within a graph database.
@@ -79,6 +80,31 @@ public interface GraphElement {
      * @return the graph element properties
      */
     List<Property> properties();
+
+    /**
+     * Returns the value associated with the provided property.
+     *
+     * <p>The interpretation, serialization strategy, and
+     * visibility semantics associated with property values
+     * are determined by the underlying database implementation.</p>
+     *
+     * <p>If the property does not exist, this method returns
+     * an empty {@link Optional}.</p>
+     *
+     * <pre>{@code
+     * GraphElement element = ...
+     *
+     * Optional<String> name =
+     *         element.get("name");
+     * }</pre>
+     *
+     * @param property the property name
+     * @param <T> the property value type
+     * @return the property value when present,
+     * otherwise an empty {@link Optional}
+     * @throws NullPointerException when the property is {@code null}
+     */
+    <T> Optional<T> get(String property);
 
 
     /**

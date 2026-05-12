@@ -15,5 +15,30 @@
  */
 package jakarta.nosql.communication.graph;
 
+/**
+ * Creates {@link GraphManager} instances for graph database
+ * communication.
+ *
+ * <p>A {@code GraphManagerFactory} is an entry point to the
+ * graph portion of the Jakarta NoSQL Communication API.
+ * It provides access to managers associated with logical
+ * graph structures according to the behavior of the
+ * underlying database implementation.</p>
+ *
+ * <p>Depending on the provider implementation, names may
+ * represent concepts such as graphs, namespaces,
+ * logical graph groups, databases, or provider-specific
+ * graph structures.</p>
+ *
+ * <p>The configuration, initialization, caching behavior,
+ * lifecycle semantics, visibility guarantees, and manager
+ * creation strategies are determined by the provider
+ * implementation.</p>
+ *
+ * <p>Providers may configure managers using mechanisms such
+ * as Java properties, environment variables, configuration
+ * files, dependency injection, or provider-specific
+ * strategies.</p>
+ */
 public interface GraphManagerFactory {
 }

@@ -112,8 +112,28 @@ public interface GraphManager {
      */
     Edge put(Edge edge);
 
-
-    Optional<Vertex> findVertexById(Object id);
+    /**
+     * Returns the vertex associated with the provided identifier.
+     *
+     * <p>The interpretation and structure of the identifier
+     * are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * GraphManager manager = ...
+     *
+     * Optional<Vertex> vertex =
+     *         manager.findVertexById("user:10");
+     * }</pre>
+     *
+     * @param id the vertex identifier
+     * @param <K> the identifier type
+     * @return the vertex associated with the identifier,
+     * otherwise an empty {@link Optional}
+     * @throws NullPointerException when the identifier
+     * is {@code null}
+     */
+    <K> Optional<Vertex> findVertexById(K id);
 
     Optional<Edge> findEdgeById(Object id);
 

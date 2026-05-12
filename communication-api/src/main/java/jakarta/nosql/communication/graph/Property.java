@@ -34,8 +34,40 @@ package jakarta.nosql.communication.graph;
  */
 public interface Property {
 
+    /**
+     * Returns the property name.
+     *
+     * <pre>{@code
+     * Property property = ...
+     *
+     * String name = property.name();
+     * }</pre>
+     *
+     * @return the property name
+     */
     String name();
 
+    /**
+     * Returns the property value.
+     *
+     * <p>The returned value may represent different data
+     * types according to the serialization and storage
+     * semantics of the underlying database implementation.</p>
+     *
+     * <p>Depending on the provider implementation, the value
+     * may represent primitive values, collections,
+     * provider-specific structures, or graph-native
+     * representations.</p>
+     *
+     * <pre>{@code
+     * Property property = ...
+     *
+     * String value = property.value();
+     * }</pre>
+     *
+     * @param <T> the value type
+     * @return the property value
+     */
     <T> T value();
 
 }

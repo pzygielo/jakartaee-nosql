@@ -15,6 +15,23 @@
  */
 package jakarta.nosql.communication.graph;
 
+/**
+ * Represents a property associated with a graph element.
+ *
+ * <p>A {@code Property} defines the association between a
+ * property name and its corresponding value according to
+ * the semantics of the underlying graph database
+ * implementation.</p>
+ *
+ * <p>Graph databases commonly associate properties with
+ * nodes and relationships to describe attributes,
+ * metadata, labels, or provider-specific information.</p>
+ *
+ * <p>The interpretation, visibility guarantees, durability
+ * semantics, consistency model, serialization strategy,
+ * and execution behavior associated with properties are
+ * determined by the provider implementation.</p>
+ */
 public interface Property {
 
     String name();

@@ -15,5 +15,29 @@
  */
 package jakarta.nosql.communication.graph;
 
-public class GraphElement {
+/**
+ * Represents a graph element within a graph database.
+ *
+ * <p>A {@code GraphElement} defines the minimal communication
+ * structure shared by graph-oriented database elements such
+ * as vertices and edges.</p>
+ *
+ * <p>Graph databases commonly organize data using connected
+ * structures composed of vertices, relationships, labels,
+ * and properties. Graph elements expose properties associated
+ * with graph-native structures according to the semantics of
+ * the underlying database implementation.</p>
+ *
+ * <p>The interpretation, visibility guarantees, durability
+ * semantics, consistency model, serialization strategy,
+ * identity model, and execution behavior associated with
+ * graph elements are determined by the provider
+ * implementation.</p>
+ *
+ * <p>Implementations may support additional capabilities such
+ * as labels, typed relationships, distributed graph storage,
+ * provider-specific metadata, graph partitioning, or eventual
+ * consistency strategies.</p>
+ */
+public interface GraphElement {
 }

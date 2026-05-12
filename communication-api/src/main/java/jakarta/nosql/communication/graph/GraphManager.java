@@ -17,6 +17,36 @@ package jakarta.nosql.communication.graph;
 
 import java.util.Optional;
 
+/**
+ * Defines the communication contract for interacting with
+ * graph databases.
+ *
+ * <p>A {@code GraphManager} provides lifecycle operations
+ * for graph-native structures such as {@link Vertex}
+ * and {@link Edge}.</p>
+ *
+ * <p>Graph databases commonly organize data using connected
+ * structures composed of vertices, relationships, labels,
+ * properties, and provider-specific graph semantics.</p>
+ *
+ * <p>The visibility guarantees, durability semantics,
+ * consistency model, graph partitioning behavior,
+ * replication strategies, connectivity semantics,
+ * and execution timing associated with operations are
+ * determined by the provider implementation.</p>
+ *
+ * <p>This interface intentionally avoids introducing
+ * traversal APIs, graph query languages, path semantics,
+ * graph algorithms, or provider-specific navigation
+ * capabilities beyond the minimal lifecycle operations
+ * defined by the Communication API.</p>
+ *
+ * <p>Implementations may support additional capabilities
+ * such as distributed graph storage, typed relationships,
+ * provider-specific metadata, graph partitioning,
+ * replication optimizations, or eventual consistency
+ * strategies.</p>
+ */
 public interface GraphManager {
 
     Vertex put(Vertex vertex);

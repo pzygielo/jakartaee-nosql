@@ -15,6 +15,8 @@
  */
 package jakarta.nosql.communication.graph;
 
+import java.util.List;
+
 /**
  * Represents a graph element within a graph database.
  *
@@ -57,4 +59,24 @@ public interface GraphElement {
      * @return the graph element identifier
      */
     <K> K id();
+
+
+    /**
+     * Returns the properties associated with this graph element.
+     *
+     * <p>The organization, visibility semantics, ordering
+     * guarantees, and property structure are determined by
+     * the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * GraphElement element = ...
+     *
+     * for (Property property : element.properties()) {
+     *     System.out.println(property.name());
+     * }
+     * }</pre>
+     *
+     * @return the graph element properties
+     */
+    List<Property> properties();
 }

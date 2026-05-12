@@ -40,4 +40,40 @@ package jakarta.nosql.communication.graph;
  * strategies.</p>
  */
 public interface Vertex {
+
+    /**
+     * Returns the logical label associated with this vertex.
+     *
+     * <p>The interpretation and semantics of the label are
+     * determined by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * Vertex vertex = ...
+     *
+     * String label = vertex.label();
+     * }</pre>
+     *
+     * @return the vertex label
+     */
+    String label();
+
+    /**
+     * Returns the edges associated with this vertex.
+     *
+     * <p>The organization, direction semantics, visibility
+     * guarantees, connectivity behavior, and relationship
+     * structure are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * Vertex vertex = ...
+     *
+     * for (Edge edge : vertex.edges()) {
+     *     System.out.println(edge.type());
+     * }
+     * }</pre>
+     *
+     * @return the vertex edges
+     */
+    List<Edge> edges();
 }

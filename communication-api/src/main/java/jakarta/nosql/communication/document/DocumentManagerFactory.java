@@ -43,12 +43,17 @@ package jakarta.nosql.communication.document;
 public interface DocumentManagerFactory {
 
     /**
-     * Returns the default {@link DocumentManager} associated
-     * with the underlying database implementation.
+     * Returns a {@link DocumentManager} associated with the
+     * provider-defined communication context.
      *
-     * <p>This method allows interaction with document databases
-     * that rely on provider-defined default communication
-     * contexts.</p>
+     * <p>The underlying database implementation determines
+     * how the document manager is resolved and configured.</p>
+     *
+     * <p>Depending on the provider implementation, the manager
+     * may be associated with a default collection,
+     * a configured namespace, an injected communication
+     * context, environment-based configuration,
+     * or provider-specific document structures.</p>
      *
      * <pre>{@code
      * DocumentManagerFactory factory = ...
@@ -56,7 +61,12 @@ public interface DocumentManagerFactory {
      * DocumentManager manager = factory.get();
      * }</pre>
      *
-     * @return the default document manager
+     * @return the document manager associated with the
+     * provider-defined communication context
+     * @throws IllegalStateException when the provider
+     * cannot resolve a communication context or when
+     * the underlying configuration is incomplete
+     * or invalid
      */
     DocumentManager get();
 

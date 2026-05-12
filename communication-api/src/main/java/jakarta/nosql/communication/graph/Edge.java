@@ -15,5 +15,28 @@
  */
 package jakarta.nosql.communication.graph;
 
-public interface Edge {
+/**
+ * Represents a relationship between two vertices within
+ * a graph database.
+ *
+ * <p>An {@code Edge} defines a graph-native structure used
+ * to represent connections, associations, or relationships
+ * between vertices according to the semantics of the
+ * underlying database implementation.</p>
+ *
+ * <p>Edges commonly contain relationship types, properties,
+ * direction semantics, metadata, or provider-specific
+ * structures associated with graph connectivity.</p>
+ *
+ * <p>The interpretation, visibility guarantees, durability
+ * semantics, consistency model, serialization strategy,
+ * connectivity behavior, and execution semantics associated
+ * with edges are determined by the provider implementation.</p>
+ *
+ * <p>Implementations may support additional capabilities such
+ * as typed relationships, graph partitioning, distributed
+ * graph storage, provider-specific metadata, or eventual
+ * consistency strategies.</p>
+ */
+public interface Edge extends GraphElement {
 }

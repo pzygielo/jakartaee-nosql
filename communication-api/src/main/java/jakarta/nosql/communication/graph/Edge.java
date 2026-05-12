@@ -40,6 +40,21 @@ package jakarta.nosql.communication.graph;
  */
 public interface Edge extends GraphElement {
 
+    /**
+     * Returns the relationship type associated with this edge.
+     *
+     * <p>The interpretation and semantics of the type are
+     * determined by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * Edge edge = ...
+     *
+     * String type = edge.type();
+     * }</pre>
+     *
+     * @return the relationship type
+     */
+    String type();
 
     /**
      * Returns the source vertex identifier associated

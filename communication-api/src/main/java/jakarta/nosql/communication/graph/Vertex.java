@@ -15,5 +15,29 @@
  */
 package jakarta.nosql.communication.graph;
 
+/**
+ * Represents a vertex within a graph database.
+ *
+ * <p>A {@code Vertex} defines a graph-native structure used
+ * to represent entities, nodes, or connected elements within
+ * a graph model.</p>
+ *
+ * <p>Vertices are commonly connected through relationships
+ * represented by {@link Edge} instances and may contain
+ * labels, properties, metadata, or provider-specific
+ * structures according to the semantics of the underlying
+ * database implementation.</p>
+ *
+ * <p>The interpretation, visibility guarantees, durability
+ * semantics, consistency model, serialization strategy,
+ * connectivity behavior, and execution semantics associated
+ * with vertices are determined by the provider
+ * implementation.</p>
+ *
+ * <p>Implementations may support additional capabilities such
+ * as labels, graph partitioning, distributed graph storage,
+ * provider-specific metadata, or eventual consistency
+ * strategies.</p>
+ */
 public interface Vertex {
 }

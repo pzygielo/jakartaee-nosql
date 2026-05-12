@@ -79,4 +79,25 @@ public interface GraphElement {
      * @return the graph element properties
      */
     List<Property> properties();
+
+
+    /**
+     * Returns whether this graph element contains the
+     * provided property.
+     *
+     * <p>The existence semantics associated with properties
+     * are determined by the underlying database implementation.</p>
+     *
+     * <pre>{@code
+     * GraphElement element = ...
+     *
+     * boolean contains = element.contains("name");
+     * }</pre>
+     *
+     * @param property the property name
+     * @return {@code true} when the property exists,
+     * otherwise {@code false}
+     * @throws NullPointerException when the property is {@code null}
+     */
+    boolean contains(String property);
 }

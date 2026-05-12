@@ -59,4 +59,26 @@ public interface GraphManagerFactory {
      * @return the default graph manager
      */
     GraphManager get();
+
+
+    /**
+     * Returns a {@link GraphManager} associated with the
+     * provided logical name.
+     *
+     * <p>The interpretation and semantics of the provided
+     * name are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * GraphManagerFactory factory = ...
+     *
+     * GraphManager manager =
+     *         factory.get("social");
+     * }</pre>
+     *
+     * @param name the logical name associated with the manager
+     * @return the graph manager associated with the provided name
+     * @throws NullPointerException when the name is {@code null}
+     */
+    GraphManager get(String name);
 }

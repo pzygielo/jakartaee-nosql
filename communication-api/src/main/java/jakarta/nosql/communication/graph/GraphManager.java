@@ -135,7 +135,29 @@ public interface GraphManager {
      */
     <K> Optional<Vertex> findVertexById(K id);
 
-    Optional<Edge> findEdgeById(Object id);
+    /**
+     * Returns the edge associated with the provided identifier.
+     *
+     * <p>The interpretation and structure of the identifier
+     * are determined by the underlying database
+     * implementation.</p>
+     *
+     * <pre>{@code
+     * GraphManager manager = ...
+     *
+     * Optional<Edge> edge =
+     *         manager.findEdgeById("edge:10");
+     * }</pre>
+     *
+     * @param id the edge identifier
+     * @param <K> the identifier type
+     * @return the edge associated with the identifier,
+     * otherwise an empty {@link Optional}
+     * @throws NullPointerException when the identifier
+     * is {@code null}
+     */
+    <K> Optional<Edge> findEdgeById(K id);
+
 
     void deleteVertexById(Object id);
 

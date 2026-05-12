@@ -63,6 +63,10 @@ public interface GraphManagerFactory {
      *
      * @return the graph manager associated with the
      * provider-defined communication context
+     * @throws IllegalStateException when the provider
+     * cannot resolve a communication context or when
+     * the underlying configuration is incomplete
+     * or invalid
      */
     GraphManager get();
 

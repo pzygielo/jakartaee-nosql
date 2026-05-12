@@ -1,6 +1,8 @@
 package jakarta.nosql.communication.graph;
 
-public class GraphManager {
+import java.util.Optional;
+
+public interface GraphManager {
 
     Vertex put(Vertex vertex);
 

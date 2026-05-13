@@ -27,13 +27,6 @@
  * and removing data structures according to the semantics
  * of each NoSQL database model.</p>
  *
- * <p>The APIs defined in this package intentionally avoid
- * introducing query languages, traversal semantics,
- * aggregation models, relational abstractions,
- * transactional guarantees, or provider-specific behaviors
- * beyond the minimal communication contracts defined by
- * Jakarta NoSQL.</p>
- *
  * <p>The Communication API provides specialized communication
  * models aligned with the primary NoSQL database categories,
  * including key-value, column-family, document,

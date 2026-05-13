@@ -25,24 +25,26 @@
  * <p>The Communication API focuses on low-level lifecycle
  * operations such as storing, retrieving, replacing,
  * and removing data structures according to the semantics
- * of each NoSQL database model.</p>
+ * and capabilities of the target database.</p>
  *
- * <p>The Communication API provides specialized communication
- * models aligned with the primary NoSQL database categories,
- * including key-value, column-family, document,
- * and graph databases.</p>
+ * <p>The APIs defined in this package intentionally avoid
+ * introducing query languages, traversal semantics,
+ * aggregation models, relational abstractions,
+ * transactional guarantees, or provider-specific behaviors
+ * beyond the minimal communication contracts defined by
+ * Jakarta NoSQL.</p>
  *
  * <p>The Communication API is intentionally minimal and
  * designed to support extensibility according to the
- * capabilities and characteristics of each database model
- * and provider implementation.</p>
+ * capabilities, consistency models, serialization
+ * strategies, and operational characteristics of the
+ * underlying database implementation.</p>
  *
  * <p>Depending on the provider implementation, communication
  * operations may support capabilities such as distributed
  * replication, eventual consistency, partitioning,
- * provider-defined serialization strategies, batching
- * optimizations, append-oriented persistence,
- * graph connectivity semantics, or provider-specific
+ * batching optimizations, append-oriented persistence,
+ * provider-defined metadata, or provider-specific
  * communication behaviors.</p>
  *
  * <p>Providers may configure communication managers using
@@ -51,5 +53,9 @@
  * provider-defined defaults, or provider-specific
  * communication contexts.</p>
  *
+ * <p>In summary, the Communication API defines a minimal,
+ * low-level, provider-neutral, and extensible foundation
+ * for integrating communication models within Jakarta
+ * NoSQL.</p>
  */
 package jakarta.nosql.communication;

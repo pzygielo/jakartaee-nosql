@@ -35,30 +35,9 @@
  * Jakarta NoSQL.</p>
  *
  * <p>The Communication API provides specialized communication
- * models aligned with the primary NoSQL database categories:</p>
- *
- * <ul>
- *     <li>Key-value databases</li>
- *     <li>Column-family databases</li>
- *     <li>Document databases</li>
- *     <li>Graph databases</li>
- * </ul>
- *
- * <p>The following example illustrates the interaction flow
- * using a communication manager:</p>
- *
- * <pre>{@code
- * BucketManagerFactory factory = ...
- *
- * BucketManager manager = factory.get("users");
- *
- * KeyValueRecord record = ...
- *
- * manager.put(record);
- *
- * Optional<KeyValueRecord> result =
- *         manager.findByKey("user:10");
- * }</pre>
+ * models aligned with the primary NoSQL database categories,
+ * including key-value, column-family, document,
+ * and graph databases.</p>
  *
  * <p>The Communication API is intentionally minimal and
  * designed to support extensibility according to the

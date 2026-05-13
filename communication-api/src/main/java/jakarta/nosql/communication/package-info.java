@@ -27,18 +27,11 @@
  * and removing data structures according to the semantics
  * and capabilities of the target database.</p>
  *
- * <p>The APIs defined in this package intentionally avoid
- * introducing query languages, traversal semantics,
- * aggregation models, relational abstractions,
- * transactional guarantees, or provider-specific behaviors
- * beyond the minimal communication contracts defined by
- * Jakarta NoSQL.</p>
- *
- * <p>The Communication API is intentionally minimal and
- * designed to support extensibility according to the
- * capabilities, consistency models, serialization
- * strategies, and operational characteristics of the
- * underlying database implementation.</p>
+ * <p>The Communication API is intentionally designed to
+ * support extensibility according to the capabilities,
+ * consistency models, serialization strategies,
+ * and operational characteristics of the underlying
+ * database implementation.</p>
  *
  * <p>Depending on the provider implementation, communication
  * operations may support capabilities such as distributed

@@ -45,9 +45,7 @@
  * Edge edge = ...
  *
  * String type = edge.type();
- *
  * String source = edge.source();
- *
  * String target = edge.target();
  * }</pre>
  *

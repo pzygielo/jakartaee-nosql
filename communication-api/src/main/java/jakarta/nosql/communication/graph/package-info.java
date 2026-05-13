@@ -55,8 +55,7 @@
  * <pre>{@code
  * Vertex vertex = ...
  *
- * Optional<String> name =
- *         vertex.get("name");
+ * Optional<String> name = vertex.get("name");
  * }</pre>
  *
  * <p>This model intentionally avoids introducing traversal

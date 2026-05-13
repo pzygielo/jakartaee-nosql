@@ -51,9 +51,5 @@
  * provider-defined defaults, or provider-specific
  * communication contexts.</p>
  *
- * <p>In summary, the Communication API defines a minimal,
- * low-level, provider-neutral, and extensible foundation
- * for integrating NoSQL communication models within
- * Jakarta NoSQL.</p>
  */
 package jakarta.nosql.communication;

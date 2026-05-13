@@ -34,9 +34,7 @@
  *
  * manager.put(vertex);
  *
- * Optional<Vertex> result =
- *         manager.findVertexById("user:10");
- *
+ * Optional<Vertex> result = manager.findVertexById("user:10");
  * manager.deleteVertexById("user:10");
  * }</pre>
  *

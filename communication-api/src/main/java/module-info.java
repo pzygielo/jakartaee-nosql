@@ -15,8 +15,34 @@
  */
 
 /**
- * Defines the core communication API for NoSQL database operations.
+ * Defines the Jakarta NoSQL Communication API module.
+ *
+ * <p>This module provides a minimal and extensible
+ * communication foundation for interacting with NoSQL
+ * databases while preserving the native semantics and
+ * operational behavior of the underlying database
+ * implementation.</p>
+ *
+ * <p>The Communication API focuses on low-level lifecycle
+ * operations for storing, retrieving, replacing,
+ * and removing data structures according to the
+ * capabilities and characteristics of the target database.</p>
+ *
+ * <p>The APIs exposed by this module are designed to support
+ * extensibility, provider neutrality, and interoperability
+ * across different NoSQL communication models.</p>
+ *
+ * <p>Provider implementations may support capabilities such
+ * as distributed replication, eventual consistency,
+ * partitioning, batching optimizations,
+ * provider-defined serialization strategies,
+ * graph connectivity semantics, or provider-specific
+ * communication behaviors.</p>
  */
 module jakarta.nosql.communication {
     exports jakarta.nosql.communication;
+    exports jakarta.nosql.communication.document;
+    exports jakarta.nosql.communication.keyvalue;
+    exports jakarta.nosql.communication.column;
+    exports jakarta.nosql.communication.graph;
 }

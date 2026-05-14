@@ -253,7 +253,6 @@ Document records expose document elements through named structures.
 [source,java]
 ----
 DocumentRecord record = ...
-
 Optional<String> name = record.get("name");
 ----
 

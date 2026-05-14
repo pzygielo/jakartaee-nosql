@@ -207,8 +207,6 @@ The Communication API defines a minimal and extensible foundation for interactin
 
 The API focuses on low-level lifecycle operations such as storing, retrieving, replacing, and removing data structures according to the capabilities and characteristics of the target database.
 
-Rather than introducing a universal abstraction over all NoSQL systems, the Communication API embraces the diversity of NoSQL databases by providing specialized communication models aligned with their native structures and operational semantics.
-
 The Communication API is intentionally designed to support:
 
 * Minimal abstraction
@@ -217,9 +215,8 @@ The Communication API is intentionally designed to support:
 * Preservation of native database semantics
 * Low-level communication operations
 
-Depending on the provider implementation, communication operations may support capabilities such as distributed replication, eventual consistency, partitioning, batching optimizations, append-oriented persistence, graph connectivity semantics, or provider-specific communication behaviors.
+Communication managers may be configured using mechanisms such as Java properties, environment variables, dependency injection, configuration files, or provider-specific communication contexts according to the underlying database implementation.
 
-Providers may configure communication managers using mechanisms such as Java properties, environment variables, dependency injection, configuration files, provider-defined defaults, or provider-specific communication contexts.
 
 === Maven dependency
 

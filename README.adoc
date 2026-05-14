@@ -239,15 +239,11 @@ The document communication model represents interaction with NoSQL databases bas
 [source,java]
 ----
 DocumentManagerFactory factory = ...
-
 DocumentManager manager = factory.get("users");
-
 DocumentRecord record = ...
 
 manager.put(record);
-
 Optional<DocumentRecord> result = manager.findByKey("user:10");
-
 manager.deleteByKey("user:10");
 ----
 

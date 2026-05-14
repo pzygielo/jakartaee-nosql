@@ -21,8 +21,8 @@ The main difference is that AssertJ provides more assertions than `assertEquals`
 
 ==== 2.1 Test class name
 
-The test classes must match the subject of the test, plus the suffix
-`Test`.
+The test classes must match the subject of the test, plus the suffix `Test`.
+
 Example: if the subject of the test is the `Limit` class, the test name will be `LimitTest`.
 
 ==== 2.2 Test method name

@@ -19,4 +19,8 @@
  */
 module jakarta.nosql.communication {
     exports jakarta.nosql.communication;
+    exports jakarta.nosql.communication.document;
+    exports jakarta.nosql.communication.keyvalue;
+    exports jakarta.nosql.communication.column;
+    exports jakarta.nosql.communication.graph;
 }

@@ -201,7 +201,7 @@ Optional<BudgetCar> result = template
     .singleResult();
 ----
 
-=== What is the Communication API and the Goal
+=== Communication API
 
 The Communication API defines a minimal and extensible foundation for interacting with NoSQL databases while preserving the native semantics and operational behavior of the underlying database implementation.
 
@@ -220,7 +220,6 @@ The Communication API is intentionally designed to support:
 Depending on the provider implementation, communication operations may support capabilities such as distributed replication, eventual consistency, partitioning, batching optimizations, append-oriented persistence, graph connectivity semantics, or provider-specific communication behaviors.
 
 Providers may configure communication managers using mechanisms such as Java properties, environment variables, dependency injection, configuration files, provider-defined defaults, or provider-specific communication contexts.
-
 
 === Maven dependency
 

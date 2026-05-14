@@ -19,6 +19,7 @@ import net.datafaker.Faker;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
+import org.junit.jupiter.params.support.ParameterDeclarations;
 
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -66,7 +67,7 @@ abstract class AbstractSupplier<T> implements Supplier<T>, ArgumentsProvider {
     }
 
     @Override
-    public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+    public Stream<? extends Arguments> provideArguments(ParameterDeclarations parameters, ExtensionContext context) {
         return Stream.of(Arguments.of(get()));
     }
 }

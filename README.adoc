@@ -261,7 +261,28 @@ DocumentRecord record = ...
 Optional<String> name = record.get("name");
 ----
 
+=== Column
 
+The column-family communication model represents interaction with NoSQL databases based on sparse and partition-oriented column structures.
+
+[source,java]
+----
+ColumnManagerFactory factory = ...
+ColumnManager manager = factory.get("users");
+ColumnRecord record = ...
+
+manager.put(record);
+Optional<ColumnRecord> result = manager.findByKey("user:10");
+manager.deleteByKey("user:10");
+----
+
+Column records expose sparse collections of columns associated with a logical record structure.
+
+[source,java]
+----
+ColumnRecord record = ...
+Optional<String> name = record.get("name");
+----
 
 === Maven dependency
 

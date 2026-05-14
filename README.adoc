@@ -217,6 +217,20 @@ The Communication API is intentionally designed to support:
 
 Communication managers may be configured using mechanisms such as Java properties, environment variables, dependency injection, configuration files, or provider-specific communication contexts according to the underlying database implementation.
 
+=== Key-Value
+
+The key-value communication model represents interaction with NoSQL databases based on the association of a unique key to a value.
+
+[source,java]
+----
+BucketManagerFactory factory = ...
+BucketManager manager = factory.get("users");
+KeyValueRecord record = ...
+
+manager.put(record);
+Optional<KeyValueRecord> result = manager.findByKey("user:10");
+manager.deleteByKey("user:10");
+----
 
 === Maven dependency
 

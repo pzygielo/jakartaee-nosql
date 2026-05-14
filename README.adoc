@@ -291,15 +291,11 @@ The graph communication model represents interaction with graph-oriented NoSQL d
 [source,java]
 ----
 GraphManagerFactory factory = ...
-
 GraphManager manager = factory.get("social");
-
 Vertex vertex = ...
 
 manager.put(vertex);
-
 Optional<Vertex> result = manager.findVertexById("user:10");
-
 manager.deleteVertexById("user:10");
 ----
 

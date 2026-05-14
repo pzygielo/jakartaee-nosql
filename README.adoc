@@ -284,6 +284,36 @@ ColumnRecord record = ...
 Optional<String> name = record.get("name");
 ----
 
+=== Graph
+
+The graph communication model represents interaction with graph-oriented NoSQL databases based on connected structures composed of vertices, edges, and properties.
+
+[source,java]
+----
+GraphManagerFactory factory = ...
+
+GraphManager manager = factory.get("social");
+
+Vertex vertex = ...
+
+manager.put(vertex);
+
+Optional<Vertex> result = manager.findVertexById("user:10");
+
+manager.deleteVertexById("user:10");
+----
+
+Edges represent relationships between vertices according to the semantics of the underlying database implementation.
+
+[source,java]
+----
+Edge edge = ...
+
+String type = edge.type();
+String source = edge.source();
+String target = edge.target();
+----
+
 === Maven dependency
 
 [source,xml]

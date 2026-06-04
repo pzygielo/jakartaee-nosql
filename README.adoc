@@ -212,6 +212,10 @@ Optional<BudgetCar> result = template
 </dependency>
 ----
 
+=== Communication API
+
+
+
 === More Information
 
 To learn more, please refer to the https://www.jnosql.org/spec/[reference documentation], and https://www.jnosql.org/javadoc/[JavaDocs].

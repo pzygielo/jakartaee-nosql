@@ -196,9 +196,7 @@ Optional<Car> car = template.query("FROM Car WHERE id = :id")
                             .bind("id", "c-001")
                             .singleResult();
 
-Optional<BudgetCar> result = template
-    .typedQuery("WHERE price < 100", BudgetCar.class)
-    .singleResult();
+Optional<BudgetCar> result = template.typedQuery("WHERE price < 100", BudgetCar.class).singleResult();
 ----
 
 === Maven dependency

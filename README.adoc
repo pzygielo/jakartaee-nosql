@@ -181,9 +181,7 @@ You may also omit the `FROM` clause entirely if you annotate the projection with
 @Projection(from = Car.class)
 public record BudgetCar(String name, double price) {}
 
-List<BudgetCar> cheapCars = template
-    .typedQuery("WHERE price < 100", BudgetCar.class)
-    .result();
+List<BudgetCar> cheapCars = template.typedQuery("WHERE price < 100", BudgetCar.class).result();
 ----
 
 ===== Single result queries

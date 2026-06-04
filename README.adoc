@@ -214,7 +214,8 @@ Optional<BudgetCar> result = template
 
 === Communication API
 
-
+The Communication API provides a low-level interface for interacting with NoSQL databases, allowing developers to perform operations directly on the underlying data structures.
+To get more information about the Communication API, please refer to the link:COMMUNICATION.adoc[Communication API] document.
 
 === More Information
 

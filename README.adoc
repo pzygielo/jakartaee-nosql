@@ -169,9 +169,7 @@ This method supports the full query API — `result()`, `stream()`, and `singleR
 @Projection
 public record TechCarView(String name, CarType type) {}
 
-List<TechCarView> cars = template
-    .typedQuery("FROM Car WHERE type = 'SPORT'", TechCarView.class)
-    .result();
+List<TechCarView> cars = template.typedQuery("FROM Car WHERE type = 'SPORT'", TechCarView.class).result();
 ----
 
 You may also omit the `FROM` clause entirely if you annotate the projection with `@Projection(from = Car.class)`:

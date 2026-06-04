@@ -148,7 +148,7 @@ List<Car> cars = template.query("FROM Car WHERE type = :type")
                          .bind("type", CarType.SPORT)
                          .result();
 
-Optional<Car> one = template.query("FROM Car WHERE id = :id")
+Optional<Car> car = template.query("FROM Car WHERE id = :id")
                             .bind("id", 42)
                             .singleResult();
 ----

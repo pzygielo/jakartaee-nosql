@@ -111,7 +111,7 @@ String target = edge.target();
 ----
 <dependency>
     <groupId>jakarta.nosql</groupId>
-    <artifactId>jakarta.nosql-api</artifactId>
+    <artifactId>jakarta.nosql.communication-api</artifactId>
     <version>1.1.0-M2</version>
 </dependency>
 ----

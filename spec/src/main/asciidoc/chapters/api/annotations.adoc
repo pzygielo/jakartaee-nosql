@@ -31,10 +31,11 @@ Jakarta NoSQL has support for those nine types:
 3. @Id
 4. @Column
 5. @Convert
-6. @MappedSuperclass
-7. @Inheritance
-8. @DiscriminatorColumn
-9. @DiscriminatorValue
+6. @Converter
+7. @MappedSuperclass
+8. @Inheritance
+9. @DiscriminatorColumn
+10. @DiscriminatorValue
 
 In the realm of Jakarta NoSQL, developers wield a powerful arsenal of annotations tailored to meet diverse data modeling needs:
 
@@ -43,6 +44,7 @@ In the realm of Jakarta NoSQL, developers wield a powerful arsenal of annotation
 * **@Id**: Central to the entity model is the `@Id` annotation, which designates a field as the primary key. This annotation empowers developers to define the unique identifier for each entity, ensuring data integrity and facilitating efficient data retrieval operations.
 * **@Column**: The `@Column` annotation provides fine-grained control over mapping entity properties to database fields. By annotating fields with `@Column`, developers customize the storage and retrieval of data, specifying attributes such as column names, types, and constraints.
 * **@Convert**: With the `@Convert` annotation, developers can seamlessly transform entity attribute values between Java and database types. This annotation offers flexibility in data representation, allowing developers to adapt entity properties to suit the requirements of different database systems.
+* **@Converter**: The `@Converter` annotation identifies a class as an attribute converter, enabling the transformation of values between Java types and their database representations. Converter classes implement `AttributeConverter` and provide the logic required to convert application-specific types into forms that can be persisted by the underlying NoSQL database and reconstructed when retrieved. Converters may be applied explicitly using the `@Convert` annotation or automatically to all compatible attributes when `autoApply=true`, promoting consistency and reducing repetitive mapping configuration.
 * **@MappedSuperclass**: The `@MappedSuperclass` annotation is used to define shared attributes and behaviors across multiple entity classes by denoting a superclass whose mappings are applied to its subclasses.
 * **@Inheritance**: The @Inheritance annotation facilitates modeling inheritance hierarchies within entity classes. By default, Jakarta NoSQL supports a single inheritance strategy where subclass information is incorporated into the data structure as a field within the parent entity. In this default strategy, attributes of subclasses are represented as fields within the parent entity, maintaining a denormalized data structure. However, Jakarta NoSQL allows Jakarta Data providers to offer alternative inheritance strategies beyond the default specification.
 * **@DiscriminatorColumn**: The `@DiscriminatorColumn` annotation configures the discriminator column used in single table inheritance mappings. By annotating a field with `@DiscriminatorColumn`, developers control the storage of discriminator values, ensuring accurate and efficient retrieval of entity subclasses.
@@ -403,6 +405,76 @@ Additionally, let's generate a JSON format for this code:
 ----
 
 In this JSON representation, the `money` field is stored in a database-compatible format after conversion by the `MoneyConverter` class, ensuring seamless integration with the NoSQL database.
+
+=== Converter
+
+The `@Converter` annotation allows developers to define custom conversions between Java types and their database representations. This capability is useful when working with domain-specific value objects or types that are not natively supported by the underlying NoSQL database.
+
+A converter class must implement the `AttributeConverter<X, Y>` interface, where `X` represents the Java type used by the application and `Y` represents the type stored in the database. Converters may be applied explicitly using the `@Convert` annotation or automatically to all compatible attributes when `autoApply=true`.
+
+The following example defines a converter that stores a UUID as a string:
+
+[source,java]
+----
+@Converter(autoApply = true)
+public class UUIDConverter implements AttributeConverter<UUID, String> {
+
+    @Override
+    public String toDatabase(UUID attribute) {
+        return attribute == null ? null : attribute.toString();
+    }
+
+    @Override
+    public UUID toEntityAttribute(String value) {
+        return value == null ? null : UUID.fromString(value);
+    }
+}
+----
+
+Because the converter is marked with `autoApply=true`, it is automatically applied to all `UUID` attributes:
+
+[source,java]
+----
+@Entity
+public class Person {
+
+    @Id
+    private UUID id;
+
+    private UUID companyId;
+}
+----
+
+When `autoApply=false`, the converter must be explicitly associated with an attribute using `@Convert`:
+
+[source,java]
+----
+@Converter
+public class EmailConverter implements AttributeConverter<Email, String> {
+
+    @Override
+    public String toDatabase(Email attribute) {
+        return attribute == null ? null : attribute.value();
+    }
+
+    @Override
+    public Email toEntityAttribute(String value) {
+        return value == null ? null : new Email(value);
+    }
+}
+----
+
+[source,java]
+----
+@Entity
+public class Customer {
+
+    @Convert(EmailConverter.class)
+    private Email email;
+}
+----
+
+Converters help keep domain models expressive by allowing applications to work with rich domain types while delegating persistence-specific representations to the mapping layer.
 
 === Inheritance
 

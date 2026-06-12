@@ -21,6 +21,46 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * Declares that the annotated class is a converter.
+ *
+ * <p>The {@code autoApply} element specifies whether the converter
+ * is automatically applied to all mapped attributes of the target type.
+ * If {@code autoApply = true}, the persistence provider must automatically
+ * apply the converter to every mapped attribute of the converted type,
+ * except where conversion is explicitly overridden.</p>
+ *
+ * <p>Every converter class must implement
+ * {@link AttributeConverter}.</p>
+ *
+ * <p>Example:</p>
+ *
+ * <pre>{@code
+ * @Converter(autoApply = true)
+ * public class EmailConverter
+ *         implements AttributeConverter<Email, String> {
+ *
+ *     @Override
+ *     public String toDatabase(Email attribute) {
+ *         return attribute == null ? null : attribute.value();
+ *     }
+ *
+ *     @Override
+ *     public Email toEntityAttribute(String value) {
+ *         return value == null ? null : new Email(value);
+ *     }
+ * }
+ *
+ * @Entity
+ * public class Customer {
+ *
+ *     // EmailConverter is applied automatically
+ *     private Email email;
+ * }
+ * }</pre>
+ *
+ * @since 1.2
+ */
 @Target(TYPE)
 @Retention(RUNTIME)
 public @interface Converter {

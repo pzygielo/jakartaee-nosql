@@ -406,6 +406,77 @@ Additionally, let's generate a JSON format for this code:
 
 In this JSON representation, the `money` field is stored in a database-compatible format after conversion by the `MoneyConverter` class, ensuring seamless integration with the NoSQL database.
 
+=== Converter
+
+The `@Converter` annotation allows developers to define custom conversions between Java types and their database representations. This capability is useful when working with domain-specific value objects or types that are not natively supported by the underlying NoSQL database.
+
+A converter class must implement the `AttributeConverter<X, Y>` interface, where `X` represents the Java type used by the application and `Y` represents the type stored in the database. Converters may be applied explicitly using the `@Convert` annotation or automatically to all compatible attributes when `autoApply=true`.
+
+The following example defines a converter that stores a UUID as a string:
+
+[source,java]
+----
+@Converter(autoApply = true)
+public class UUIDConverter
+        implements AttributeConverter<UUID, String> {
+
+    @Override
+    public String toDatabase(UUID attribute) {
+        return attribute == null ? null : attribute.toString();
+    }
+
+    @Override
+    public UUID toEntityAttribute(String value) {
+        return value == null ? null : UUID.fromString(value);
+    }
+}
+----
+
+Because the converter is marked with `autoApply=true`, it is automatically applied to all `UUID` attributes:
+
+[source,java]
+----
+@Entity
+public class Person {
+
+    @Id
+    private UUID id;
+
+    private UUID companyId;
+}
+----
+
+When `autoApply=false`, the converter must be explicitly associated with an attribute using `@Convert`:
+
+[source,java]
+----
+@Converter
+public class EmailConverter
+        implements AttributeConverter<Email, String> {
+
+    @Override
+    public String toDatabase(Email attribute) {
+        return attribute == null ? null : attribute.value();
+    }
+
+    @Override
+    public Email toEntityAttribute(String value) {
+        return value == null ? null : new Email(value);
+    }
+}
+----
+
+[source,java]
+----
+@Entity
+public class Customer {
+
+    @Convert(EmailConverter.class)
+    private Email email;
+}
+----
+
+Converters help keep domain models expressive by allowing applications to work with rich domain types while delegating persistence-specific representations to the mapping layer.
 
 === Inheritance
 

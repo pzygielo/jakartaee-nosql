@@ -25,10 +25,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * Declares that the annotated class is a converter.
  *
  * <p>The {@code autoApply} element specifies whether the converter
- * is automatically applied to all mapped attributes of the target type.
- * If {@code autoApply = true}, the persistence provider must automatically
- * apply the converter to every mapped attribute of the converted type,
- * except where conversion is explicitly overridden.</p>
+ * is automatically applied to all mapped attributes of the target type. If {@code autoApply = true}, the persistence
+ * provider must automatically apply the converter to every mapped attribute of the converted type, except where
+ * conversion is explicitly overridden.</p>
  *
  * <p>Every converter class must implement
  * {@link AttributeConverter}.</p>
@@ -65,52 +64,50 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface Converter {
 
-/**
- * Specifies whether the annotated converter should be
- * automatically applied to attributes of the target type.
- *
- * <p>If {@code true}, the converter is automatically applied
- * to all mapped attributes of the converted type unless
- * explicitly overridden.</p>
- *
- * <p>Example:</p>
- *
- * <pre>{@code
- * @Converter(autoApply = true)
- * public class UUIDConverter
- *         implements AttributeConverter<UUID, String> {
- *     ...
- * }
- *
- * @Entity
- * public class Person {
- *
- *     // UUIDConverter is applied automatically
- *     private UUID identifier;
- * }
- * }</pre>
- *
- * <p>If {@code false}, the converter is applied only when
- * explicitly selected using {@link Convert}.</p>
- *
- * <p>Example:</p>
- *
- * <pre>{@code
- * @Converter(autoApply = false)
- * public class UUIDConverter
- *         implements AttributeConverter<UUID, String> {
- *     ...
- * }
- *
- * @Entity
- * public class Person {
- *
- *     @Convert(UUIDConverter.class)
- *     private UUID identifier;
- * }
- * }</pre>
- *
- * @return whether the converter should be automatically applied
- */
+    /**
+     * Specifies whether the annotated converter should be automatically applied to attributes of the target type.
+     *
+     * <p>If {@code true}, the converter is automatically applied
+     * to all mapped attributes of the converted type unless explicitly overridden.</p>
+     *
+     * <p>Example:</p>
+     *
+     * <pre>{@code
+     * @Converter(autoApply = true)
+     * public class UUIDConverter
+     *         implements AttributeConverter<UUID, String> {
+     *     ...
+     * }
+     *
+     * @Entity
+     * public class Person {
+     *
+     *     // UUIDConverter is applied automatically
+     *     private UUID identifier;
+     * }
+     * }</pre>
+     *
+     * <p>If {@code false}, the converter is applied only when
+     * explicitly selected using {@link Convert}.</p>
+     *
+     * <p>Example:</p>
+     *
+     * <pre>{@code
+     * @Converter(autoApply = false)
+     * public class UUIDConverter
+     *         implements AttributeConverter<UUID, String> {
+     *     ...
+     * }
+     *
+     * @Entity
+     * public class Person {
+     *
+     *     @Convert(UUIDConverter.class)
+     *     private UUID identifier;
+     * }
+     * }</pre>
+     *
+     * @return whether the converter should be automatically applied
+     */
     boolean autoApply() default false;
 }

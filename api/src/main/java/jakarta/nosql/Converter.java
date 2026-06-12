@@ -59,7 +59,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * }
  * }</pre>
  *
- * @since 1.2
+ * @since 1.1
  */
 @Target(TYPE)
 @Retention(RUNTIME)

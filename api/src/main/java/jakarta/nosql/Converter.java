@@ -88,8 +88,6 @@ public @interface Converter {
      * <p>If {@code false}, the converter is applied only when
      * explicitly selected using {@link Convert}.</p>
      *
-     * <p>Example:</p>
-     *
      * <pre>{@code
      * @Converter(autoApply = false)
      * public class UUIDConverter

@@ -73,10 +73,13 @@ public @interface Converter {
      * to all mapped attributes of the converted type unless
      * explicitly overridden.</p>
      *
+     * <p>If {@code false}, the converter is applied only when
+     * explicitly selected using {@link Convert}.</p>
+     *
      * <p>Example:</p>
      *
      * <pre>{@code
-     * @Converter(autoApply = true)
+     * @Converter(autoApply = false)
      * public class UUIDConverter
      *         implements AttributeConverter<UUID, String> {
      *     ...
@@ -85,7 +88,7 @@ public @interface Converter {
      * @Entity
      * public class Person {
      *
-     *     // UUIDConverter is applied automatically
+     *     @Convert(UUIDConverter.class)
      *     private UUID identifier;
      * }
      * }</pre>

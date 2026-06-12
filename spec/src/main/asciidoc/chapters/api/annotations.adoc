@@ -417,8 +417,7 @@ The following example defines a converter that stores a UUID as a string:
 [source,java]
 ----
 @Converter(autoApply = true)
-public class UUIDConverter
-        implements AttributeConverter<UUID, String> {
+public class UUIDConverter implements AttributeConverter<UUID, String> {
 
     @Override
     public String toDatabase(UUID attribute) {

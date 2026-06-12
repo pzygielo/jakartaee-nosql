@@ -31,10 +31,11 @@ Jakarta NoSQL has support for those nine types:
 3. @Id
 4. @Column
 5. @Convert
-6. @MappedSuperclass
-7. @Inheritance
-8. @DiscriminatorColumn
-9. @DiscriminatorValue
+6. @Converter
+7. @MappedSuperclass
+8. @Inheritance
+9. @DiscriminatorColumn
+10. @DiscriminatorValue
 
 In the realm of Jakarta NoSQL, developers wield a powerful arsenal of annotations tailored to meet diverse data modeling needs:
 

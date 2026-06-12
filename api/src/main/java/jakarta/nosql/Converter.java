@@ -67,8 +67,30 @@ public @interface Converter {
 
     /**
      * Specifies whether the annotated converter should be
-     * automatically applied to attributes of the target
-     * type.
+     * automatically applied to attributes of the target type.
+     *
+     * <p>If {@code true}, the converter is automatically applied
+     * to all mapped attributes of the converted type unless
+     * explicitly overridden.</p>
+     *
+     * <p>Example:</p>
+     *
+     * <pre>{@code
+     * @Converter(autoApply = true)
+     * public class UUIDConverter
+     *         implements AttributeConverter<UUID, String> {
+     *     ...
+     * }
+     *
+     * @Entity
+     * public class Person {
+     *
+     *     // UUIDConverter is applied automatically
+     *     private UUID identifier;
+     * }
+     * }</pre>
+     *
+     * @return whether the converter should be automatically applied
      */
     boolean autoApply() default false;
 }

@@ -70,8 +70,6 @@ public @interface Converter {
      * <p>If {@code true}, the converter is automatically applied
      * to all mapped attributes of the converted type unless explicitly overridden.</p>
      *
-     * <p>Example:</p>
-     *
      * <pre>{@code
      * @Converter(autoApply = true)
      * public class UUIDConverter

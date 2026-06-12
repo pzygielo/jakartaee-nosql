@@ -450,8 +450,7 @@ When `autoApply=false`, the converter must be explicitly associated with an attr
 [source,java]
 ----
 @Converter
-public class EmailConverter
-        implements AttributeConverter<Email, String> {
+public class EmailConverter implements AttributeConverter<Email, String> {
 
     @Override
     public String toDatabase(Email attribute) {

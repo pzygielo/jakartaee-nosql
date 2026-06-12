@@ -16,4 +16,11 @@
 package jakarta.nosql;
 
 public @interface Converter {
+
+    /**
+     * Specifies whether the annotated converter should be
+     * automatically applied to attributes of the target
+     * type.
+     */
+    boolean autoApply() default false;
 }

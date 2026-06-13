@@ -128,9 +128,7 @@ template.delete(Car.class)
     .execute();
 ----
 
-This fluent style makes query intent explicit (`select`, `update`, `delete`),
-reduces the risk of errors common in string-based queries, and adapts naturally
-to the capabilities of different NoSQL databases.
+This fluent style makes query intent explicit (`select`, `update`, `delete`), reduces the risk of errors common in string-based queries, and adapts naturally to the capabilities of different NoSQL databases.
 
 ==== Typed Queries and Projections
 

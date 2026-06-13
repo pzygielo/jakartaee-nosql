@@ -201,7 +201,7 @@ Optional<BudgetCar> result = template.typedQuery("WHERE price < 100", BudgetCar.
 <dependency>
     <groupId>jakarta.nosql</groupId>
     <artifactId>jakarta.nosql-api</artifactId>
-    <version>1.1.0-M2</version>
+    <version>1.1.0-M3</version>
 </dependency>
 ----
 

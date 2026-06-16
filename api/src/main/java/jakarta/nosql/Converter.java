@@ -57,7 +57,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     private Email email;
  * }
  * }</pre>
- *
+ * Note: Converter implementations should be stateless.
  * @since 1.1
  */
 @Target(TYPE)
